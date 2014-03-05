@@ -1,4 +1,6 @@
 TallyApp2::Application.routes.draw do
+  devise_for :businesses
+  devise_for :customers
   root  'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -9,8 +11,8 @@ TallyApp2::Application.routes.draw do
 
   resources :businesses
 
-  devise_for :users
-
+  get 'signup' => 'application#signup', as: :signup
+  get 'signin' => 'application#signin', as: :signin
   
 
   # The priority is based upon order of creation: first created -> highest priority.
