@@ -21,8 +21,8 @@ class CustomersController < ApplicationController
   def edit
   end
 
-  POST /customers
-  POST /customers.json
+  # POST /customers
+  # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
 

@@ -1,33 +1,34 @@
-<h3>Your Customers</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Business</th>
-      <th>Customer</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Your Customers</h1>
+<%= link_to 'All Customer Visits', visits_path, class: "pull-right" %>
 
     <% if !current_business.customers.blank? %>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+
       <% for customer in current_business.customers %>
-        <tr>
-          <td><%= customer.email %></td>
-          <td><%= link_to 'Show', customer %></td>
-          <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-          <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+                <tr>
+                  <td><%= customer.id %></td>
+                  <td><%= customer.email %></td>
+                  <td><%= link_to 'Show', customer %></td>
+                  <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+                  <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
       <% end %>
+          </tbody>
+        </table>
     <% else %>
       No Visits Yet!
     <% end %>
-
-  </tbody>
-</table>
 
 <br>
 
