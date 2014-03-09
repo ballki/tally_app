@@ -1,5 +1,6 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
+  # before_action :create, :authenticate_business!
 
   # GET /visits
   # GET /visits.json
@@ -24,7 +25,16 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.json
   def create
-    @visit = Visit.new(visit_params)
+    
+    @customer = Customer.find_by(email: params[:email])
+    if !@customer
+      @customer = Customer.new(email: params[:email], password:'1234')
+      @customer.save
+    end
+
+    @visit = Visit.new
+    @visit.business_id = current_business.id
+    @visit.customer_id = @customer.id
 
     respond_to do |format|
       if @visit.save
@@ -69,6 +79,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:business_id, :customer_id)
+      # params.require(:visit).permit(:business_id, :customer_id)
     end
 end

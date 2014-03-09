@@ -2,12 +2,12 @@
 
 <p>
   <strong>Business:</strong>
-  <%= @visit.business_id %>
+  <%= Business.find(@visit.business_id).email %>
 </p>
 
 <p>
   <strong>Customer:</strong>
-  <%= @visit.customer_id %>
+  <%= Customer.find(@visit.customer_id).email %>
 </p>
 
 <%= link_to 'Edit', edit_visit_path(@visit) %> |

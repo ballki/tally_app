@@ -1,2 +1,24 @@
 <h1>StaticPages#home</h1>
-<a href="/businesses/new" class="btn btn-info btn-large">Create Business</a>
+<div class="row text-center">
+
+<% if current_business %>
+<div class="col-md-6">
+	<h3>Your Customers</h3>
+	<a href="/visits/new" class="pull-right btn btn-success btn-sm">New Visit</a>
+	<ol class="visits">
+		<% if !current_business.customers.blank? %>
+		  <% for customer in current_business.customers %>
+			<li><%= customer.email %></li>
+		  <% end %>
+		<% else %>
+		  No Visits Yet!
+		<% end %>
+	</ol>
+</div>
+<% else %>
+	
+<a href="/businesses/new" class="btn btn-info btn-large text-center">Create Business</a>
+	
+</div>
+
+<% end %>
