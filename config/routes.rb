@@ -10,6 +10,7 @@ TallyApp2::Application.routes.draw do
   resources :customers
 
   resources :businesses
+  get 'businesses/:id/visits' => 'visits#forBusiness', as: :business_visits
 
   get 'signup' => 'application#signup', as: :signup
   get 'signin' => 'application#signin', as: :signin

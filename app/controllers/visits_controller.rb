@@ -38,7 +38,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Visit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @visit }
       else
         format.html { render action: 'new' }
@@ -69,6 +69,11 @@ class VisitsController < ApplicationController
       format.html { redirect_to visits_url }
       format.json { head :no_content }
     end
+  end
+
+
+  def forBusiness
+    render "visits/bybusiness"
   end
 
   private
