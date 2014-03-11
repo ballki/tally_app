@@ -24,6 +24,7 @@ class VisitsController < ApplicationController
 
   # POST /visits
   # POST /visits.json
+
   def create
     
     @customer = Customer.find_by(email: params[:email])
@@ -36,9 +37,20 @@ class VisitsController < ApplicationController
     @visit.business_id = current_business.id
     @visit.customer_id = @customer.id
 
+    @visit_count=Visit.where(customer_id:@customer.id, business_id:current_business.id).count
+    @req_visits = current_business.req_visits
+    @reward = current_business.reward
+    @since_last_reward = @visit_count % @req_visits.to_i
+    if @since_last_reward.to_i == 0
+      @notice = 'Congratulations! You have visited ' + @req_visits.to_s + ' times since your last reward. Please collect ' + @reward.to_s + '!'
+    else
+      @notice = 'You have visited ' + @since_last_reward.to_s + ' times since your last reward. You only need to visit ' + 
+      (@req_visits.to_i - @since_last_reward).to_s + ' more times to earn ' + @reward.to_s + '!'
+    end
+
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to root_path, notice: 'Visit was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Visit was successfully registered. ' + @notice }
         format.json { render action: 'show', status: :created, location: @visit }
       else
         format.html { render action: 'new' }
