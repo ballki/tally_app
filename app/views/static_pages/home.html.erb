@@ -6,6 +6,9 @@
 <!-- <a href="/businesses/<%= current_business.id %>/visits" class="btn btn-success">Your Customers</a> -->
 <a href="<%= business_visits_path(current_business) %>" class="btn btn-success">Your Customers</a>
 
+
+<%= link_to 'New Visit', new_visit_path, class: "btn btn-success" %>
+
 <% else %>
 	
 <a href="/businesses/new" class="btn btn-info btn-large text-center">Create Business</a>

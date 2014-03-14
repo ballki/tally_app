@@ -25,7 +25,8 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.json
   def create
-    
+    # render json: current_business
+
     @customer = Customer.find_by(email: params[:email])
     if !@customer
       @customer = Customer.new(email: params[:email], password:'1234')
@@ -35,6 +36,13 @@ class VisitsController < ApplicationController
     @visit = Visit.new
     @visit.business_id = current_business.id
     @visit.customer_id = @customer.id
+
+    @visit_count= Visit.where(customer_id:@customer.id, business_id:current_business.id).count
+    if @visit_count / 2 == 0
+      @notice = 'You have visited 5 more times! Get an award!'
+    else
+      @notice = 'You have visited '+ @visit_count + ' times. ' + 2 - @visit_count%2 +' before you get an award!'
+    end 
 
     respond_to do |format|
       if @visit.save
