@@ -19,7 +19,6 @@
         <td><%= visit.business_id %></td>
         <td><%= Business.find(visit.business_id).email %></td>
         <td><%= visit.customer_id %></td>
-        <td><%= Customer.find(visit.customer_id).email %></td>
         <td><%= link_to 'Show', visit %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
         <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
