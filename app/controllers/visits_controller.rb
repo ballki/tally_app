@@ -34,11 +34,6 @@ class VisitsController < ApplicationController
   # POST /visits.json
 
   def create
-<<<<<<< HEAD
-    # render json: current_business
-
-=======
->>>>>>> ff9a8106de9f4b050914abc81251529f9ebce48c
     @customer = Customer.find_by(email: params[:email])
     if !@customer
       @customer = Customer.new(email: params[:email], password:'1234')
