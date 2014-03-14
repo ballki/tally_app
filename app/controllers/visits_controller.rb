@@ -16,6 +16,14 @@ class VisitsController < ApplicationController
   # GET /visits/new
   def new
     @visit = Visit.new
+    @visit.business_id = current_business.id
+    @req_visits = current_business.req_visits
+    @reward = current_business.reward
+    @name = current_business.name
+    @logo = current_business.logo
+    @photo = current_business.photo
+        render layout: false
+
   end
 
   # GET /visits/1/edit
@@ -26,7 +34,6 @@ class VisitsController < ApplicationController
   # POST /visits.json
 
   def create
-    
     @customer = Customer.find_by(email: params[:email])
     if !@customer
       @customer = Customer.new(email: params[:email], password:'1234')
@@ -57,6 +64,7 @@ class VisitsController < ApplicationController
         format.json { render json: @visit.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /visits/1

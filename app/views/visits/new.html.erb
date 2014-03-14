@@ -1,5 +1,8 @@
-<h1>New visit</h1>
+<h1>Check In</h1>
+<img class="offer" src="<%= @logo %>">
 
-<%= render 'form' %>
+<p class ="offer">Welcome to <%= @name %>! Check in <%= @req_visits %> times to receive <%= @reward %>!</p>
+<img class ="behind" src="<%= @photo %>">
+<div id="newcustform"><%= render 'form' %></div>
 
 <%= link_to 'Back', visits_path %>

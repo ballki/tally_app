@@ -1,5 +1,5 @@
 TallyApp2::Application.routes.draw do
-  devise_for :businesses
+  devise_for :businesses, :controllers => { :registrations => "registrations" }
   devise_for :customers
   root  'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'

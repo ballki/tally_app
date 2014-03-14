@@ -42,7 +42,8 @@ class BusinessesController < ApplicationController
   # PATCH/PUT /businesses/1.json
   def update
     respond_to do |format|
-      if @business.update(business_params)
+      # if @business.update(business_params)
+     @business.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
         format.html { redirect_to @business, notice: 'Business was successfully updated.' }
         format.json { head :no_content }
       else
