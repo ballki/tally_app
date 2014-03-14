@@ -22,7 +22,7 @@ class VisitsController < ApplicationController
     @name = current_business.name
     @logo = current_business.logo
     @photo = current_business.photo
-        render layout: false
+    # render layout: false
 
   end
 
@@ -58,7 +58,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to business_visits_path(@visit), notice: 'Visit was successfully created.' + @notice}
+        format.html { redirect_to new_visit_path, notice: 'Visit was successfully created.' + @notice}
         format.json { render action: 'show', status: :created, location: @visit }
       else
         format.html { render action: 'new' }

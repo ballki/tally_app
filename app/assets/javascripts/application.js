@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require business
+
+$(document).ready(function(){ 
+	setTimeout(function(){
+		$('p.alert').slideToggle(1000)
+	}, 4000);
+	$('p.alert').slideToggle(1000)
+})
