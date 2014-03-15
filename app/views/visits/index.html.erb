@@ -4,23 +4,21 @@
   <thead>
     <tr>
       <th>Business</th>
-      <th>Business Email</th>
       <th>Customer</th>
-      <th>Customer Email</th>
-      <th></th>
+      <th>Date and time</th>
+      <th>Options</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @visits.each do |visit| %>
+      <% for visit in current_business.visits %>
       <tr>
         <td><%= visit.business_id %></td>
-        <td><%= Business.find(visit.business_id).email %></td>
         <td><%= visit.customer_id %></td>
-        <td><%= link_to 'Show', visit %></td>
-        <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
+        <td><%= visit.created_at %></td>
+
         <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

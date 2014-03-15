@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
+<form>
+  <div id="inputblock">
+    <input type="text" name="email" placeholder="Please enter your email address" class="email new">
+     <%= f.submit 'Go', :class => 'btn' %>
 
-  <div class="field">
-    <input type="text" name="email" placeholder="Please enter your email address" class="form-control">
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+</form>
 <% end %>
