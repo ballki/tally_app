@@ -58,7 +58,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to new_visit_path, notice: 'Visit was successfully created.' + @notice}
+        format.html { redirect_to new_visit_path, notice: 'Thanks for coming! ' + @notice}
         format.json { render action: 'show', status: :created, location: @visit }
       else
         format.html { render action: 'new' }
@@ -95,6 +95,10 @@ class VisitsController < ApplicationController
 
   def forBusiness
     render "visits/bybusiness"
+  end
+
+  def forCustomer
+    render "visits/bycustomer"
   end
 
   private

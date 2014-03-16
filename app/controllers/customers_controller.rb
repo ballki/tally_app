@@ -10,6 +10,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @visit=Visit.where(customer_id:@customer.id, business_id:current_business.id)
   end
 
   # GET /customers/new

@@ -1,18 +1,41 @@
-<h1>StaticPages#home</h1>
-<div class="row text-center">
 
-<% if current_business %>
-
-<!-- <a href="/businesses/<%= current_business.id %>/visits" class="btn btn-success">Your Customers</a> -->
-<a href="<%= business_visits_path(current_business) %>" class="btn btn-success">Your Customers</a>
+<% if business_signed_in? %>
+<h1 class="text-center">Welcome to your dashboard, <%= @name %></h1>
+<p class="text-center">View your customer stats below or launch your application to start accepting check-ins for today.</p>
 
 
-<%= link_to 'New Visit', new_visit_path, class: "btn btn-success" %>
 
+<div class="text-center padded">
+<%= link_to 'Launch application!', new_visit_path, class: "btn btn-primary btn-large" %></div>
+                  <%= render 'visits/bybusiness' %>
 <% else %>
-	
-<a href="/businesses/new" class="btn btn-info btn-large text-center">Create Business</a>
-	
-</div>
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Welcome to Tally</h1>
+        <p>Tally is a simple system that takes the pain out of customer loyalty programmes.</p>
+        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
 
-<% end %>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Tally Kiosk</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Customer Data</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Targeted Marketing</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+ <% end %>
+

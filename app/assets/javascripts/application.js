@@ -13,12 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-
+//= require bootstrap
 //= require business
 
 $(document).ready(function(){ 
 	setTimeout(function(){
 		$('p.alert').slideToggle(1000)
-	}, 4000);
+	}, 7000);
 	$('p.alert').slideToggle(1000)
 })

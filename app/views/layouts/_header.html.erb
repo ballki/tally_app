@@ -1,33 +1,46 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "Welcome to Tally", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-         <p class="navbar-text pull-right">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <%= link_to "Welcome to Tally", root_path, id: "logo", :class => 'brand' %>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><%= link_to 'About', about_path, :class => 'navbar-link' %></li>
+              <li><%= link_to 'Help', help_path, :class => 'navbar-link' %></li>
+            </ul>
 
 <% if business_signed_in? %>
-  Logged in as <strong><%= current_business.email %></strong>.
-  <%= link_to 'Edit profile', edit_business_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_business_session_path, method: :delete, :class => 'navbar-link'  %>
-
+  <ul class="nav pull-right">
+  <li style="padding:10px 15px; color:#fff;">Logged in as <strong><%= current_business.email %></strong></li>
+  <li><%= link_to 'Edit profile', edit_business_registration_path, :class => 'navbar-link' %></li>
+  <li><%= link_to "Logout", destroy_business_session_path, method: :delete, :class => 'navbar-link'  %></li>
+  </ul>
 <% elsif customer_signed_in? %>
-
-  Logged in as <strong><%= current_customer.email %></strong>.
-  <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
-
+  <ul class="nav pull-right">
+  <li style="padding:10px 15px; color:#fff;">Logged in as <strong><%= current_customer.email %></strong></li>
+  <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %></li>
+  <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %></li>
+  </ul>
 <% else %>
+    
+            <form class="navbar-form pull-right">
+                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                <%= f.email_field :email, :autofocus => true, :class => 'span2',:type => 'text',:placeholder => 'Email'   %>
+                <%= f.password_field :password, :class => 'span2',:type => 'password',:placeholder => 'Password' %>
+                <%= f.submit "Sign in", :class => 'btn',:type => 'submit'  %>
+                <% end %>
+            </form>
 
-  <%= link_to "Sign up", new_business_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_business_session_path, :class => 'navbar-link'  %>
-<% end %>
+ <% end %>
 
-          
-        </ul>
-      </nav>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-  </div>
-</header>
 
-
+        

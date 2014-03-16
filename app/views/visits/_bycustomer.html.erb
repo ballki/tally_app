@@ -1,5 +1,8 @@
-<h1>All visits</h1>
-<%= link_to 'All Customers', customers_path, class: "pull-right" %>
+
+
+
+<h1>Visits for this customer</h1>
+
 <table class="table">
   <thead>
     <tr>
@@ -13,7 +16,7 @@
   </thead>
 
   <tbody>
-      <% for visit in current_business.visits %>
+      <% for @customer in current_business.customers %>
       <tr>
         <td><%= visit.business_id %></td>
         <td><%= visit.customer_id %></td>
@@ -25,6 +28,7 @@
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Visit', new_visit_path, class: "btn btn-success" %>
+

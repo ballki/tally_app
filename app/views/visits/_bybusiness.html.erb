@@ -1,14 +1,17 @@
+
+
+
 <h1>Your Customers</h1>
-<%= link_to 'All Customer Visits', visits_path, class: "pull-right" %>
+<%= link_to 'Customer visits by time', visits_path, class: "pull-right" %>
 
 
     <% if !current_business.customers.blank? %>
-        <table>
+        <table class="table">
           <thead>
             <tr>
               <th>ID</th>
               <th>Email</th>
-              <th>No. Visits</th>
+              <th>Number of visits</th>
               <th></th>
               <th></th>
               <th></th>
@@ -16,7 +19,7 @@
           </thead>
 
 
-          <tbody>
+          <tbody class="table-striped">
 
       <% for customer in current_business.customers.uniq %>
            <!-- customer.id.each do |c| %> -->
@@ -25,9 +28,8 @@
                   <td><%= customer.id %></td>
                   <td><%= customer.email %></td>
                   <td><%= customer.visits.count %></td>
-                  <td><%= link_to 'Show', customer %></td>
-                  <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-                  <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Show', customer %> |
+                  <%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
               <!-- end %> -->
       <% end %>
@@ -39,5 +41,4 @@
 
 <br>
 
-<%= link_to 'New Visit', new_visit_path, class: "btn btn-success" %>
 
