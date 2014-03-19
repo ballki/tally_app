@@ -1,14 +1,14 @@
 
 
 
-<h1>Visits for this customer</h1>
+<h2>Visits for this customer</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Business</th>
-      <th>Customer</th>
-      <th>Date and time</th>
+      <th>Customer</th> 
+      <th>Email</th>
+      <th>Time & Date</th>
       <th>Options</th>
       <th></th>
       <th></th>
@@ -16,14 +16,15 @@
   </thead>
 
   <tbody>
-      <% for @customer in current_business.customers %>
-      <tr>
-        <td><%= visit.business_id %></td>
-        <td><%= visit.customer_id %></td>
-        <td><%= visit.created_at %></td>
-
-        <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% for visit in Visit.where(:business_id => current_business.id,:customer_id => @customer.id)  %>
+              
+                <tr>
+                  <td><%= @customer.id %></td>
+                  <td><%= @customer.email %></td>
+                  <td><%= visit.created_at %></td>
+                  <td>
+                  <%= link_to 'Delete visit record', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
     <% end %>
   </tbody>
 </table>

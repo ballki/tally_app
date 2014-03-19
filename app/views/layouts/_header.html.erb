@@ -28,13 +28,11 @@
   </ul>
 <% else %>
     
-            <form class="navbar-form pull-right">
-                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "navbar-form pull-right"} ) do |f| %>
                 <%= f.email_field :email, :autofocus => true, :class => 'span2',:type => 'text',:placeholder => 'Email'   %>
                 <%= f.password_field :password, :class => 'span2',:type => 'password',:placeholder => 'Password' %>
                 <%= f.submit "Sign in", :class => 'btn',:type => 'submit'  %>
                 <% end %>
-            </form>
 
  <% end %>
 

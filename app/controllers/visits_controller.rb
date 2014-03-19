@@ -45,14 +45,17 @@ class VisitsController < ApplicationController
     @visit.customer_id = @customer.id
 
 
-    @visit_count=Visit.where(customer_id:@customer.id, business_id:current_business.id).count
+    @visit_count=Visit.where(customer_id:@customer.id, business_id:current_business.id).count + 1
     @req_visits = current_business.req_visits
     @reward = current_business.reward
     @since_last_reward = @visit_count % @req_visits.to_i
-    if @since_last_reward.to_i == 0
-      @notice = 'Congratulations! You have visited ' + @req_visits.to_s + ' times since your last reward. Please collect ' + @reward.to_s + '!'
+    if @visit_count < @req_visits.to_i
+      @notice = '<br/> You only need to visit ' + 
+      (@req_visits.to_i - @since_last_reward).to_s + ' more times to earn ' + @reward.to_s + '!'
+    elsif @visit_count % @req_visits.to_i == 0
+      @notice = 'Congratulations! You have visited ' + @req_visits.to_s + ' times. <br/> You have earned ' + @reward.to_s + '!'
     else
-      @notice = 'You have visited ' + @since_last_reward.to_s + ' times since your last reward. You only need to visit ' + 
+      @notice = 'You have visited ' + @since_last_reward.to_s + ' times since your last reward. <br/> You only need to visit ' + 
       (@req_visits.to_i - @since_last_reward).to_s + ' more times to earn ' + @reward.to_s + '!'
     end
 

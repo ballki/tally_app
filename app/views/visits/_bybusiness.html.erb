@@ -1,8 +1,8 @@
 
 
 
-<h1>Your Customers</h1>
-<%= link_to 'Customer visits by time', visits_path, class: "pull-right" %>
+<h2>Your Customers</h2>
+<%= link_to 'View all customer visits by date/time', visits_path, class: "pull-right" %>
 
 
     <% if !current_business.customers.blank? %>
@@ -27,7 +27,7 @@
                 <tr>
                   <td><%= customer.id %></td>
                   <td><%= customer.email %></td>
-                  <td><%= customer.visits.count %></td>
+                  <td><%= Visit.where(:business_id => current_business.id,:customer_id => customer.id).count  %></td>
                   <td><%= link_to 'Show', customer %> |
                   <%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>

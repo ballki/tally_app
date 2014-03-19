@@ -1,18 +1,18 @@
 <!-- = stylesheet_link_tag "new_visit", media: "all" %> -->
 <link rel="stylesheet" href="/custom/new_visit.css">
 
-<img class ="behind" src="<%= @photo %>">
+<img class ="behind" src="<%= image_path(@photo) %>">
 
     
 
 		<div id="centerPseudo" style="margin-top:150px;">
 			<h1 class ="offer">Welcome to <%= @name %>!</h1>
-			<img class="offer" src="<%= @logo %>">
+			<img class="offer" src="<%= image_path(@logo) %>">
 			<p class ="offer"> Check in <%= @req_visits %> times to receive <%= @reward %>!</p>
 			<div id="newcustform" class="new_visit"><%= render 'form' %></div>
 		</div>
 <div id="back">
-<%= link_to 'Exit', visits_path %>
+<%= link_to 'Exit', root_path %>
 </div>
 
 

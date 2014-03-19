@@ -1,5 +1,5 @@
 <h1>All visits</h1>
-<%= link_to 'All Customers', customers_path, class: "pull-right" %>
+<%= link_to 'Back to dashboard', root_path, class: "pull-right" %>
 <table class="table">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
         <td><%= visit.customer_id %></td>
         <td><%= visit.created_at %></td>
 
-        <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete visit record', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
