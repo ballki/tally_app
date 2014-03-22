@@ -22,7 +22,7 @@
         height: 60px;
       }
       #footer {
-        background-color: #f5f5f5;
+        background-color: #666;
         padding: 10px;
       }
 
@@ -47,6 +47,25 @@
   background-image: image-url("thisistally.jpg");
   text-align: right;
   color: #5CB3FF;
+}
+.hero-unit p {
+  color: #fff;
+  padding-top: 8px; 
+}
+#businesshomepage .hero-unit {
+  background-image: none;
+  background-color: #333;
+  text-align: right;
+  color: #5CB3FF;
+  padding: 10px;
+  margin-bottom: 0;
+}
+#businesshomepage .hero-unit p {
+  color: #fff;
+  padding-top: 8px; 
+}
+.margin20 {
+  margin:20px;
 }
 
 // // @import "bootstrap";

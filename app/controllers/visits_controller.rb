@@ -1,5 +1,6 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, except: [:create, :new, :index]
   # before_action :create, :authenticate_business!
 
   # GET /visits

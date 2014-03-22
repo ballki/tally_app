@@ -1,6 +1,6 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, except: [:edit, :update, :show]
   # GET /businesses
   # GET /businesses.json
   def index
@@ -29,8 +29,12 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
+          if admin_signed_in
+        format.html { redirect_to root_path, notice: 'Business was successfully created.' } 
+          else       
         format.html { redirect_to @business, notice: 'Business was successfully created.' }
         format.json { render action: 'show', status: :created, location: @business }
+          end
       else
         format.html { render action: 'new' }
         format.json { render json: @business.errors, status: :unprocessable_entity }
@@ -62,7 +66,7 @@ class BusinessesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_business

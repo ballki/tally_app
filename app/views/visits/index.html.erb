@@ -1,6 +1,6 @@
 <h1>All visits</h1>
 <%= link_to 'Back to dashboard', root_path, class: "pull-right" %>
-<table class="table">
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Business</th>
@@ -11,9 +11,13 @@
       <th></th>
     </tr>
   </thead>
-
+<% if admin_signed_in?
+      v = @visits
+    else
+      v = current_business.visits
+    end %>
+        <% for visit in v %>
   <tbody>
-      <% for visit in current_business.visits %>
       <tr>
         <td><%= visit.business_id %></td>
         <td><%= visit.customer_id %></td>
@@ -22,6 +26,8 @@
         <td><%= link_to 'Delete visit record', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
+
   </tbody>
 </table>
 

@@ -1,13 +1,22 @@
 
 <% if business_signed_in? %>
-<h1 class="text-center">Welcome to your dashboard, <%= @name %></h1>
-<p class="text-center">View your customer stats below or launch your application to start accepting check-ins for today.</p>
+<div id="businesshomepage">
+    <div class="hero-unit">
+        <h1 class="text-center">Welcome to your dashboard, <%= @name %></h1>
+        <p class="text-center">View your customer stats below or launch your application to start accepting check-ins for today.</p>
+    </div>
+    <div class="text-center padded">
+    <%= link_to 'Launch application', new_visit_path, class: "btn btn-success btn-large margin20" %>
+                      <%= render 'visits/bybusiness' %>
+</div>
+<% elsif admin_signed_in? %>
+<h1 class="text-center">Welcome, Administrator</h1>
+<p class="text-center">You are in control</p>
 
+<%= render :partial => '/businesses/index' %>
 
+<%= render :partial => '/customers/allcustomers', :locals => {:customers => Customer.all}  %>
 
-<div class="text-center padded">
-<%= link_to 'Launch application!', new_visit_path, class: "btn btn-primary btn-large" %></div>
-                  <%= render 'visits/bybusiness' %>
 <% else %>
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
@@ -20,17 +29,17 @@
       <div class="row">
         <div class="span4">
           <h2>Tally Kiosk</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p>A sleek and simple interface allowing customers to check-in to your establishment on each visit and earn loyalty rewards. Gather a database of customer contact details. </p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div>
         <div class="span4">
           <h2>Customer Analytics</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p>Understand the visiting patterns of your most valued customers using Tally's unique analytics platform, and find new ways to connect with and retain them. </p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
        </div>
         <div class="span4">
           <h2>Email Marketing</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p>Choose a customised email marketing plan that completely removes the pain from building relationships with your clients.</p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div>
       </div>

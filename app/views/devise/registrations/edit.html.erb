@@ -2,70 +2,69 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
+<div class="container-fluid">
+<h3>Login information</h3>
+    <div class="row">
+      <div class="col-md-4 span3 "><%= f.label :email %><br />
+      <%= f.email_field :email, :autofocus => true %></div>
 
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+      <div class="col-md-4 span3 "><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="col-md-4 span3 "><%= f.label :password_confirmation %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-<!--   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div> -->
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :street_address %><br>
-    <%= f.text_field :street_address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :manager %><br>
-    <%= f.text_field :manager %>
-  </div>
-  <div class="field">
-    <%= f.label :reward %><br>
-    <%= f.text_field :reward %>
-  </div>
-  <div class="field">
-    <%= f.label :req_visits %><br>
-    <%= f.text_field :req_visits %>
-  </div>
-  <div class="field">
-    <%= f.label :marketing_package %><br>
-    <%= f.text_field :marketing_package %>
-  </div>
+    <!--   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password %></div> -->
+    </div>
+    <h3>Profile and contact</h3>
+    <div class="row">
+      <div class="field col-md-3 span3  ">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field col-md-3 span3">
+        <%= f.label :logo %><br>
+        <%= f.text_field :logo %>
+      </div>
+      <div class="field col-md-3 span3">
+        <%= f.label :street_address %><br>
+        <%= f.text_field :street_address %>
+      </div>
+      <div class="field col-md-3 span3">
+        <%= f.label :phone %><br>
+        <%= f.text_field :phone %>
+      </div>
+      <div class="field col-md-3 span3 ">
+        <%= f.label :manager %><br>
+        <%= f.text_field :manager %>
+      </div>
   <div class="field">
     <%= f.label :photo %><br>
     <%= f.text_field :photo %>
   </div>
-
-  <div><%= f.submit "Update" %></div>
+    </div>
+    <h3>Loyalty selection</h3>
+    <div class="row">    
+      <div class="field col-md-3 span3 ">
+        <%= f.label :reward %><br>
+        <%= f.text_field :reward %>
+      </div>
+      <div class="field col-md-3 span3 ">
+        <%= f.label :req_visits %><br>
+        <%= f.text_field :req_visits %>
+      </div>
+      <div class="field col-md-3 span3 ">
+        <%= f.label :marketing_package %><br>
+        <%= f.text_field :marketing_package %>
+      </div>
+      </div>
+  </div>
+</br>
+  <div><%= f.submit "Update", class: "btn btn-success btn-medium pull-right" %></div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
 <%= link_to "Back", :back %>

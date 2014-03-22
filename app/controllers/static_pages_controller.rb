@@ -4,6 +4,9 @@ class StaticPagesController < ApplicationController
   	@name = current_business.name
     @logo = current_business.logo
   	end
+
+    @businesses = Business.all
+
   end
 
   def about
