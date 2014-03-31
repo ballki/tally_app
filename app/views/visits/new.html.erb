@@ -10,6 +10,7 @@
 			<img class="offer" src="<%= image_path(@logo) %>">
 			<p class ="offer"> Check in <%= @req_visits %> times to receive <%= @reward %>!</p>
 			<div id="newcustform" class="new_visit"><%= render 'form' %></div>
+			<p class="small text-center" style="color:white;">By inputting your email address you are agreeing to receive information emails from Tally. You can unsubscribe from these at any time.</p>
 		</div>
 <div id="back">
 <%= link_to 'Exit', root_path %>

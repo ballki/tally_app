@@ -1,0 +1,58 @@
+
+
+
+<h2>Rewards for this customer</h2>
+
+<h3>Outstanding</h3>
+<% if !Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => false).blank? %>
+  <table class="table table-condensed table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Reward</th> 
+        <th>Date earned</th>
+        <th>Redeemed?</th>
+        <th>Redeem</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% for reward in Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => false)  %>
+                
+                  <tr>
+                    <td><%= reward.reward %></td>
+                    <td><%= reward.created_at %></td>
+                    <td><%= reward.redeemed %></td>
+                    <td><%= link_to "Redeem", { :controller => 'rewards',:action => :update, :redeemed => true}, :method => :put %></td> 
+                  </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+<p>No rewards outstanding for this customer</p>
+<% end %>
+
+<h3>Redeemed</h3>
+<% if !Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => true).blank? %>
+<table class="table table-condensed table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Reward</th> 
+      <th>Date earned</th>
+      <th>Redeemed?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% for reward in Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => true)  %>
+              
+                <tr>
+                  <td><%= reward.reward %></td>
+                  <td><%= reward.created_at %></td>
+                  <td><%= reward.redeemed %></td>
+                </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<p>No rewards redeemed for this customer</p>
+<% end %>

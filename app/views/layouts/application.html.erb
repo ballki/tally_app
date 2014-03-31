@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Vollkorn">
   <%= render 'layouts/shim' %>
     <style type="text/css">
       body {
@@ -18,7 +20,9 @@
     <div class="container">
                     <%= render 'layouts/header' %>
                 	<% if notice %>
-                	  <p class="alert alert-notice hide"><%= notice.html_safe %></p>
+                	  <div class="alert alert-notice hide">
+                    <%= notice.html_safe %>
+                    </div>
                 	<% end %>
                 	<% if alert %>
                 	  <p class="alert alert-error"><%= alert %></p>

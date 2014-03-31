@@ -18,7 +18,7 @@
 
 $(document).ready(function(){ 
 	setTimeout(function(){
-		$('p.alert').slideToggle(1000)
+		$('div.alert').slideToggle(1000)
 	}, 7000);
-	$('p.alert').slideToggle(1000)
+	$('div.alert').slideToggle(1000)
 })

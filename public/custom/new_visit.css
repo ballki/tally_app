@@ -3,8 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* This parent can be any width and height */
+
+
 .alert {
-         font-size: 1.4em;
+         font-size: 2em;
         line-height: 1.4em;
         background-color: #2B65EC;
         color: #fff;
@@ -12,16 +14,48 @@
 
 }
 .alert-notice {
-        font-size: 1.4em;
-        line-height: 1.4em;
-        background-color: #C28100;
-        color: #fff;
-        text-decoration: none;
-                text-align: center;
-        border:none;
-        font-family: 'Source Sans Pro', sans-serif;
-        background: rgba(255, 255, 255, 0.2);
+font-size: 2.6em;
+font-weight: 100;
+background-color: #D1D0CE;
+line-height: 1.4em;
+text-decoration: none;
+text-align: center;
+border:none;
+font-family: 'Lato', Helvetica, Arial, sans-serif;
+position: absolute;
+left: 50%;
+top: 50%;
+height: 300px;
+width: 1000px;
+margin-top: -150px;
+margin-left: -500px;
+border: 1px solid #999;
+/*-webkit-box-shadow: 3px 3px 7px #777;*/
+-moz-border-radius: 22px;
+-webkit-border-radius: 22px;
+padding:20px;
+z-index: 2;
+color: #495674;
     }
+
+.alert-notice h1 {
+    font-family: 'Vollkorn', Georgia;
+    font-size: 2em;
+    font-weight: 900;
+    padding:30px;
+    color: #2B3856;
+
+}
+.alert-notice h2 {
+    font-family: 'Lato';
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.alert-notice h3 {
+    font-family: 'Lato';
+    font-size: 1.2em;
+    font-weight: 100;
+}
 
 .centerFlex {
     /* Internet Explorer 10 */
@@ -78,7 +112,9 @@
       font-size: 2em;
       text-align: center;
       color:#fff;
-      opacity: 0.6;
+      opacity: 0.8;
+      font-family: 'Lato', Helvetica, Arial, sans-serif;
+      font-weight: 100;
 }
 
 img.offer {
@@ -104,7 +140,8 @@ h1.offer {
 	color:white;
 	text-align: center;
 	opacity: 0.6;
-	font-family: helvetica;
+    font-family: 'Vollkorn', Georgia;
+    font-weight: 900;
 }
 #newcustform {
   margin-top:50px;

@@ -1,0 +1,35 @@
+<h1>Listing rewards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Business</th>
+      <th>Customer</th>
+      <th>Reward</th>
+      <th>Redeemed</th>
+      <th>Redeemed at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rewards.each do |reward| %>
+      <tr>
+        <td><%= reward.business_id %></td>
+        <td><%= reward.customer_id %></td>
+        <td><%= reward.reward %></td>
+        <td><%= reward.redeemed %></td>
+        <td><%= reward.redeemed_at %></td>
+        <td><%= link_to 'Show', reward %></td>
+        <td><%= link_to 'Edit', edit_reward_path(reward) %></td>
+        <td><%= link_to 'Destroy', reward, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reward', new_reward_path %>

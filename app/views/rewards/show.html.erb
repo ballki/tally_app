@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @reward.business_id %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @reward.customer_id %>
+</p>
+
+<p>
+  <strong>Reward:</strong>
+  <%= @reward.reward %>
+</p>
+
+<p>
+  <strong>Redeemed:</strong>
+  <%= @reward.redeemed %>
+</p>
+
+<p>
+  <strong>Redeemed at:</strong>
+  <%= @reward.redeemed_at %>
+</p>
+
+<%= link_to 'Edit', edit_reward_path(@reward) %> |
+<%= link_to 'Back', rewards_path %>

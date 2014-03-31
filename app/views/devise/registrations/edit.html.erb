@@ -5,7 +5,7 @@
 <div class="container-fluid">
 <h3>Login information</h3>
     <div class="row">
-      <div class="col-md-4 span3 "><%= f.label :email %><br />
+      <div class="col-md-4 span3 hidden"><%= f.label :email %><br />
       <%= f.email_field :email, :autofocus => true %></div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -23,7 +23,7 @@
     </div>
     <h3>Profile and contact</h3>
     <div class="row">
-      <div class="field col-md-3 span3  ">
+      <div class="field col-md-3 span3 hidden">
         <%= f.label :name %><br>
         <%= f.text_field :name %>
       </div>

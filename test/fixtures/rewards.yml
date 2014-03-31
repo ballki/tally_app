@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_id: MyString
+  customer_id: MyString
+  reward: MyString
+  redeemed: false
+  redeemed_at: 2014-03-24 20:45:13
+
+two:
+  business_id: MyString
+  customer_id: MyString
+  reward: MyString
+  redeemed: false
+  redeemed_at: 2014-03-24 20:45:13

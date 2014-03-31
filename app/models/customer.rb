@@ -5,5 +5,6 @@ class Customer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :visits
   has_many :businesses, through: :visits
+  has_many :rewards
   accepts_nested_attributes_for :visits, :allow_destroy => true
 end
