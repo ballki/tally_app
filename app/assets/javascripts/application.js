@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dashio_theme/jquery-1.8.3.min
+//= require_tree
+//= require_tree ./dashio_theme/
+//= require_tree ./dashio_front/
 //= require turbolinks
 //= require bootstrap
-//= require business
 
 $(document).ready(function(){ 
 	setTimeout(function(){

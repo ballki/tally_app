@@ -3,14 +3,10 @@ source 'https://rubygems.org'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.2'
-gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
 gem 'devise'
 gem 'role_model'
-# twitter bootstrap css & javascript toolkit
-gem 'twitter-bootswatch-rails', '~> 3.1.1'
 
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'

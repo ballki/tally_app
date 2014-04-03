@@ -1,6 +1,6 @@
 class RewardsController < ApplicationController
   before_action :set_reward, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, except: [:create, :new, :show, :destroy,:update]
   # GET /rewards
   # GET /rewards.json
   def index
@@ -40,15 +40,15 @@ class RewardsController < ApplicationController
   # PATCH/PUT /rewards/1
   # PATCH/PUT /rewards/1.json
   def update
+    # render json: @reward
+
     respond_to do |format|
       if @reward.update(reward_params)
-        format.html { redirect_to @reward, notice: 'Reward was successfully updated.' }
+        format.html { redirect_to request.referer, notice: 'Reward was successfully updated.' }
         format.json { head :no_content }
-        format.js
       else
         format.html { render action: 'edit' }
         format.json { render json: @reward.errors, status: :unprocessable_entity }
-        format.js
       end
     end
   end

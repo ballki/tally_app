@@ -1,49 +1,36 @@
+         <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+    <header class="header darkerblue">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="<%= root_path %>" class="logo"><b><span>TALLY</span></b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-                <%= link_to "Welcome to Tally", root_path, id: "logo", :class => 'brand' %>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><%= link_to 'About', about_path, :class => 'navbar-link' %></li>
-              <li><%= link_to 'Help', help_path, :class => 'navbar-link' %></li>
-            </ul>
 
-<% if business_signed_in? %>
-  <ul class="nav pull-right">
-  <li style="padding:10px 15px; color:#fff;">Logged in as <strong><%= current_business.email %></strong></li>
-  <li><%= link_to 'Edit profile', edit_business_registration_path, :class => 'navbar-link' %></li>
-  <li><%= link_to "Logout", destroy_business_session_path, method: :delete, :class => 'navbar-link'  %></li>
-  </ul>
-<% elsif customer_signed_in? %>
-  <ul class="nav pull-right">
-  <li style="padding:10px 15px; color:#fff;">Logged in as <strong><%= current_customer.email %></strong></li>
-  <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %></li>
-  <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %></li>
-  </ul>
-<% elsif admin_signed_in? %>
-  <ul class="nav pull-right">
-  <li style="padding:10px 15px; color:#fff;">Logged in as administrator: <strong><%= current_admin.email %></strong></li>
-  <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link'  %></li>
-  </ul>
-<% else %>
-    
-                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "navbar-form pull-right"} ) do |f| %>
-                <%= f.email_field :email, :autofocus => true, :class => 'span2',:type => 'text',:placeholder => 'Email'   %>
-                <%= f.password_field :password, :class => 'span2',:type => 'password',:placeholder => 'Password' %>
-                <%= f.submit "Sign in", :class => 'btn',:type => 'submit'  %>
+            </div>
+            <div class="top-menu">
+                  <% if business_signed_in? %>
+                   <%= link_to 'Launch application', new_visit_path, class: "btn btn-warning btn-large launchapp" %>
+                  <% end %>
+              <ul class="nav pull-right top-menu">
+                <% if business_signed_in? %>
+                    <li><%= link_to "Logout", destroy_business_session_path, :method => :delete, :class => 'logout'  %></li>
+                <% else %>
+                    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "navbar-form pull-right"} ) do |f| %>
+                    <%= f.email_field :email, :autofocus => true, :class => 'span2',:type => 'text',:placeholder => 'Email'   %>
+                    <%= f.password_field :password, :class => 'span2',:type => 'password',:placeholder => 'Password' %>
+                    <%= f.submit "Sign in", :class => 'btn',:type => 'submit'  %>
+                    <% end %>
                 <% end %>
+              </ul>
+            </div>
+        </header>
+      <!--header end-->
 
- <% end %>
 
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
-        
+   

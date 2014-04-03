@@ -1,50 +1,118 @@
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
 
-<% if business_signed_in? %>
-<div id="businesshomepage">
-    <div class="hero-unit">
-        <h1 class="text-center">Welcome to your dashboard, <%= @name %></h1>
-        <p class="text-center lead">View your customer stats below or launch your application to start accepting check-ins for today.</p>
-    </div>
-    <div class="text-center padded">
-    <%= link_to 'Launch application', new_visit_path, class: "btn btn-success btn-large margin20" %>
-                      <%= render 'visits/bybusiness' %>
-</div>
-<% elsif admin_signed_in? %>
-<h1 class="text-center">Welcome, Administrator</h1>
-<p class="text-center">You are in control</p>
+  
+                      <div class="row">
+                      <!-- SERVER STATUS PANELS -->
+  
+                        <div class="col-md-4 col-sm-4 mb">
+                          <div class="darkblue-panel pn darkblue">
+                            <div class="darkblue-header darkerblue">
+                    <h5>TOTAL CHECKINS</h5>
+                            </div>
+                    <h1><i class="fa fa-3x f900"> <%= Visit.where(:business_id => current_business.id).count  %></i></h1>
+                <p></p>
+                <footer>
+                  <div class="centered">
+                    <h5 class="mt">since you joined Tally</h5>
+                  </div>
+                </footer>
+                          </div><! -- /darkblue panel -->
+                        </div><!-- /col-md-4 -->
 
-<%= render :partial => '/businesses/index' %>
+                        <div class="col-md-4 col-sm-4 mb">
+                          <div class="darkblue-panel pn lightblue">
+                            <div class="darkblue-header darkblue">
+                    <h5>TOTAL CUSTOMERS</h5>
+                            </div>
+                            <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
+                <p></p>
+                <footer>
+                  <div class="centered">
+                    <h5 class="mt"><i class="fa fa-user"></i> loyal customers</h5>
+                  </div>
+                </footer>
+                          </div><! -- /darkblue panel -->
+                        </div><!-- /col-md-4 -->
+                        
+                    <div class="col-md-4 col-sm-4 mb">
+                <div class="darkblue-panel pn lightgrey">
+                  <div class="darkblue-header darkergrey">
+                    <h5>AVG VISITS PER CUSTOMER</h5>
+                  </div>
+  <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count / Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
+                <p></p>
+                <footer>
+                  <div class="centered">
+                    <h5 class="mt">per customer</h5>
+                  </div>
+                </footer>
+                </div>
+              </div><! --/col-md-4 -->
 
-<%= render :partial => '/customers/allcustomers', :locals => {:customers => Customer.all}  %>
+                    </div><!-- /row -->
+                    
+          
+           <div class="row mb">
 
-<% else %>
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Welcome to Tally</h1>
-        <p>Loyalty programmes, customer analytics, and email marketing: the easy way.</p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
+            <!-- DIRECT MESSAGE PANEL -->
+            <div class="col-md-8">
+              <div class="message-p pn">
+                <div class="message-header">
+                  <h5>REDEEM REWARD</h5>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 centered hidden-sm hidden-xs">
+                    <h1><i class="fa fa-trophy fa-3x"></i></h1>
+                  </div>
+                  <div class="col-md-9">
+                    <p>Enter the customer's email here:</p>
+                    <p class="message">Search for a customer to see a list of their rewards and redeem any outstanding ones.</p>
+                  
+                    <form class="form-inline" role="form">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputText" placeholder="Customer email">
+                      </div>
+                      <button type="submit" class="btn btn-default">Go</button>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- /Message Panel-->
+            </div><!-- /col-lg-9  -->
+                        <!-- WEATHER PANEL -->
+            <div class="col-md-4">
+              <div class="weather pn orange">
+                <i class="fa fa-cloud fa-4x"></i>
+                <h2>11º C</h2>
+                <h4>NORWICH</h4>
+              </div>
+            </div><!-- /col-md-4-->
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-          <h2>Tally Kiosk</h2>
-          <p>A sleek and simple interface allowing customers to check-in to your establishment on each visit and earn loyalty rewards. Gather a database of customer contact details. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Customer Analytics</h2>
-          <p>Understand the visiting patterns of your most valued customers using Tally's unique analytics platform, and find new ways to connect with and retain them. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Email Marketing</h2>
-          <p>Choose a customised email marketing plan that completely removes the pain from building relationships with your clients.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
+         </div><!-- /row -->
 
-      <hr>
+              <div class="row mb">
+                        <div class="col-md-8">
+                      <%= render :partial => '/visits/bybusiness' %>
+                  </div>
 
- <% end %>
+                                <!-- PHOTO PANEL -->
+            <div class="col-md-4">
+              <div class="weather pn darkblue">
+                <img src="<%= image_path(@photo) %>" class="behind scaleimage">
+                <h4>Welcome To <%= @name %></h4>
+              </div>
+            </div><!-- /col-md-4-->    
+            </div><!-- /row -->
+                      </div>            
+
+
+                  
+
+
+
+
+
+
 

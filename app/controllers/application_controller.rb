@@ -15,4 +15,6 @@ class ApplicationController < ActionController::Base
       u.permit(:name, :logo, :email, :password, :password_confirmation, :street_address, :phone, :manager, :reward, :req_visits, :marketing_package, :photo)
     end
   end
+
+
 end

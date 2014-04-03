@@ -1,0 +1,57 @@
+.launchapp {
+	margin-top:15px; !important
+}
+.largepanel {
+	font-size: 3em;
+}
+.darkblue {
+	background-color:#2B3856;
+}
+.lightblue {
+	background-color:#98AFC7;
+}
+.lightgrey {
+	background-color:#B6B6B4;
+}
+.darkerblue {
+	background-color:#212E4C;
+}
+.darkergrey {
+	background-color:#848482;
+}
+.orange {
+	background-color:#E56717;
+}
+.f900 {
+	font-weight:900;
+}
+.wrapper {
+	padding-left:0;
+	padding-right:0;
+}
+.fullheight {
+	min-height:100%;
+}
+a.logo span{
+	color:#FFDB58;
+}
+.site-footer {
+	background-color:#212E4C;
+}
+#sidebar {
+	background-color:#495674;
+}
+.scaleimage {
+	max-height: 100%;
+	max-width:100%;
+}
+ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
+		background-color:#E56717;
+			font-size: 1.1em;
+	}
+ul.sidebar-menu li a i {
+	font-size: 1.1em;
+}
+ul.sidebar-menu li a {	
+	font-size: 1.1em;
+}

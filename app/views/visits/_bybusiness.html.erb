@@ -1,47 +1,45 @@
 
+<div class="message-p">
+  <div class="message-header message-p" style="margin-bottom:0;">
+  <h5>Your Customers</h5>
+  </div>
+   <!-- link_to 'View all customer visits by date/time', visits_path, class: "pull-right" %> -->
 
 
-<h2>Your Customers</h2>
-<%= link_to 'View all customer visits by date/time', visits_path, class: "pull-right" %>
+      <% if !current_business.customers.blank? %>
+          <table class="table table-condensed table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Number of visits</th>
+                <th>Rewards earned</th>
+                <th>Rewards owed</th>
+                <th>Rewards redeemed</th>
+              </tr>
+            </thead>
 
 
-    <% if !current_business.customers.blank? %>
-        <table class="table table-condensed table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Email</th>
-              <th>Number of visits</th>
-              <th>Rewards earned</th>
-              <th>Rewards owed</th>
-              <th>Rewards redeemed</th>
-            </tr>
-          </thead>
+            <tbody>
 
-
-          <tbody>
-
-      <% for customer in current_business.customers.uniq %>
-           <!-- customer.id.each do |c| %> -->
-              
-                <tr>
-                  <td><%= customer.id %></td>
-                  <td><%= link_to customer.email, customer %></td>
-                  <td><%= Visit.where(:business_id => current_business.id,:customer_id => customer.id).count  %></td>
-                  <td><%= Reward.where(:business_id => current_business.id,:customer_id => customer.id).count  %></td>
-                  <td><%= Reward.where(:business_id => current_business.id,:customer_id => customer.id,:redeemed => false).count  %></td>
-                  <td><%= Reward.where(:business_id => current_business.id,:customer_id => customer.id, :redeemed => true).count  %></td>
-<!--                   <td><%= link_to 'Show', customer %> -->
-<!--                   <%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-                </tr>
-              <!-- end %> -->
+        <% for customer in current_business.customers.uniq %>
+             <!-- customer.id.each do |c| %> -->
+                
+                  <tr>
+                    <td><%= customer.id %></td>
+                    <td><%= link_to customer.email, customer %></td>
+                    <td><%= Visit.where(:business_id => current_business.id,:customer_id => customer.id).count  %></td>
+                    <td><%= Reward.where(:business_id => current_business.id,:customer_id => customer.id).count  %></td>
+                    <td><%= Reward.where(:business_id => current_business.id,:customer_id => customer.id,:redeemed => false).count  %></td>
+                    <td><%= Reward.where(:business_id => current_business.id,:customer_id => customer.id, :redeemed => true).count  %></td>
+  <!--                   <td><%= link_to 'Show', customer %> -->
+  <!--                   <%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                  </tr>
+                <!-- end %> -->
+        <% end %>
+            </tbody>
+          </table>
+      <% else %>
+        No Visits Yet!
       <% end %>
-          </tbody>
-        </table>
-    <% else %>
-      No Visits Yet!
-    <% end %>
-
-<br>
-
-
+</div>

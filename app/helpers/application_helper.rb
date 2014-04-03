@@ -1,6 +1,7 @@
 module ApplicationHelper
 def resource_name
     :business
+    
   end
 
   def resource

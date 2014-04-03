@@ -22,7 +22,10 @@
                     <td><%= reward.reward %></td>
                     <td><%= reward.created_at %></td>
                     <td><%= reward.redeemed %></td>
-                    <td><%= link_to "Redeem", { :controller => 'rewards',:action => :update, :redeemed => true}, :method => :put %></td> 
+                    <!-- <td> link_to "Redeem", { :controller => 'rewards',:action => :update(reward, {:redeemed => true}), :method => :put} %></td>  -->
+
+                    <td><%= link_to "Redeem", update_reward_path(reward, reward:{:redeemed => true, redeemed_at: DateTime.now }), :method => :put %></td> 
+                    <!-- link_to "Add as friend", user_friend_path(current_user, @friend), :method=> :put -->
                   </tr>
       <% end %>
     </tbody>
@@ -39,6 +42,7 @@
       <th>Reward</th> 
       <th>Date earned</th>
       <th>Redeemed?</th>
+            <th>Date Redeemed</th>
     </tr>
   </thead>
 
@@ -49,6 +53,7 @@
                   <td><%= reward.reward %></td>
                   <td><%= reward.created_at %></td>
                   <td><%= reward.redeemed %></td>
+                  <td><%= reward.redeemed_at %></td>
                 </tr>
     <% end %>
   </tbody>
