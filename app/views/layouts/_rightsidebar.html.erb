@@ -1,15 +1,12 @@
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
-                  
-                  <div class="col-lg-3 ds fullheight">
-                    <!--COMPLETED ACTIONS DONUTS CHART-->
-                  	<div class="donut-main">
+<div id="right_sidebar">       
+    <div class="col-lg-3 ds fullheight">
+      <!--COMPLETED ACTIONS DONUTS CHART-->
+    	   <div class="donut-main">
 						<h4>Welcome to your dashboard, <%= @name %></h4>
-View your customer stats below or launch your application to start accepting check-ins for today.
-
-
-
+            View your customer stats below or launch your application to start accepting check-ins for today.
 
 						<canvas id="newchart" height="130" width="130"></canvas>
 						<script>
@@ -25,7 +22,7 @@ View your customer stats below or launch your application to start accepting che
 								];
 								var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
 						</script>
-                  	</div>
+          </div>
                   
                       <!--NEW EARNING STATS -->
                       <div class="panel terques-chart">
@@ -46,52 +43,52 @@ View your customer stats below or launch your application to start accepting che
                       <h4 class="centered mt">YOUR PROFILE</h4>
                       <p>
                         <strong>Name:</strong>
-                        <%= @name %>
+                        <%= business_details[:name] %>
                       </p>
 
                       <p>
                         <strong>Logo:</strong>
-                        <%= @logo %>
+                        <%= business_details[:logo] %>
                       </p>
 
                       <p>
                         <strong>Email:</strong>
-                        <%= @email %>
+                        <%= business_details[:email] %>
                       </p>
 
                       <p>
                         <strong>Street address:</strong>
-                        <%= @street_address %>
+                        <%= business_details[:street_address] %>
                       </p>
 
                       <p>
                         <strong>Phone:</strong>
-                        <%= @phone %>
+                        <%= business_details[:phone] %>
                       </p>
 
                       <p>
                         <strong>Manager:</strong>
-                        <%= @manager %>
+                        <%= business_details[:manager] %>
                       </p>
 
                       <p>
                         <strong>Reward:</strong>
-                        <%= @reward %>
+                        <%= business_details[:reward] %>
                       </p>
 
                       <p>
                         <strong>Req visits:</strong>
-                        <%= @req_visits %>
+                        <%= business_details[:req_visits] %>
                       </p>
 
                       <p>
                         <strong>Marketing package:</strong>
-                        <%= @marketing_package %>
+                        <%= business_details[:marketing_package] %>
                       </p>
 
                       <p>
                         <strong>Photo:</strong>
-                        <%= @photo %>
+                        <%= business_details[:photo] %>
                       </p>
                       
                   </div><!-- /col-lg-3 -->

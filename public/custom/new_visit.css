@@ -100,10 +100,16 @@ color: #495674;
 .new_visit input{
 	text-align: center;
 }
-.navbar{
+.header{
 	display: none;
 }
-#footer{
+#sidebar {
+    display: none;  
+}
+#right_sidebar {
+    display: none;  
+}
+.site-footer{
 	display: none;
 }
 /* new visits */

@@ -173,7 +173,7 @@ body {
         
         <div class="navbar-wrapper">
   <div class="container">
-    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar navbar-inverse navbar-static-top frontpage">
       
         <div class="navbar-header">
         <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -201,16 +201,22 @@ body {
             </li>
 
           </ul>
-                          <ul class="nav pull-right top-menu">
-                     <% if business_signed_in? %>
+                          <ul class="nav pull-right top-menu frontpage">
+                <% if business_signed_in? %>
                     <li><%= link_to "Logout", destroy_business_session_path, :method => :delete, :class => 'logout'  %></li>
                 <% else %>
-                    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "navbar-form pull-right"} ) do |f| %>
-                    <%= f.email_field :email, :autofocus => true, :class => 'span2',:type => 'text',:placeholder => 'Email'   %>
-                    <%= f.password_field :password, :class => 'span2',:type => 'password',:placeholder => 'Password' %>
-                    <%= f.submit "Sign in", :class => 'btn',:type => 'submit'  %>
+                    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-inline"} ) do |f| %>
+                    <div class="form-group">
+                    <%= f.email_field :email, :autofocus => true, :class => 'form-control',:type => 'text',:placeholder => 'Email'   %>
+                    </div>
+                       <div class="form-group">
+                    <%= f.password_field :password, :class => 'form-control',:type => 'password',:placeholder => 'Password' %>
+                    </div>
+                    <%= f.submit "Sign in", :class => 'btn btn-default',:type => 'submit'  %>
                     <% end %>
                 <% end %>
+
+
                 </ul>
                 
         </div>
@@ -231,16 +237,16 @@ body {
   </ol>
   <div class="carousel-inner">
     <div class="item active">
-      <img src="/assets/example/bg_suburb.jpg" class="img-responsive">
+      <%= image_tag "frontimage.jpg", :class => "img-responsive" %>
       <div class="container">
         <div class="carousel-caption">
           <h1>Welcome to Tally</h1>
-          <pthis is="" an="" example="" layout="" with="" carousel="" that="" uses="" the="" bootstrap="" 3="" styles.<="" small=""><p></p>
+          <p>An cardless loyalty system that effortlessly brings your customers back again and again.</p>
           <p><a class="btn btn-lg btn-primary" href="http://getbootstrap.com">Learn More</a>
         </p></pthis></div>
       </div>
     </div>
-    <div class="item">
+<!--     <div class="item">
       <img src="http://lorempixel.com/1500/600/abstract/1" class="img-responsive">
       <div class="container">
         <div class="carousel-caption">
@@ -249,8 +255,8 @@ body {
           <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
         </div>
       </div>
-    </div>
-    <div class="item">
+    </div> -->
+  <!--   <div class="item">
         <img class ="img-reponsive" src="<%= image_path(@photo) %>">
       <div class="container">
         <div class="carousel-caption">
@@ -259,7 +265,7 @@ body {
           <p><a class="btn btn-large btn-primary" href="#">Browse gallery</a></p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- Controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -281,21 +287,21 @@ body {
   <!-- Three columns of text below the carousel -->
   <div class="row">
     <div class="col-md-4 text-center">
-      <img class="img-circle" src="http://placehold.it/140x140">
-      <h2>Mobile-first</h2>
-      <p>Tablets, phones, laptops. The new 3 promises to be mobile friendly from the start.</p>
+      <img class="img-circle fit" src="http://ww1.prweb.com/prfiles/2012/02/29/9239098/gI_81293_noshlist-armoractive.jpg">
+      <h2>The Tally kiosk</h2>
+      <p>A sleek and simple interface allowing customers to check-in to your establishment on each visit and earn loyalty rewards. Gather a database of customer contact details.</p>
       <p><a class="btn btn-default" href="#">View details »</a></p>
     </div>
     <div class="col-md-4 text-center">
-      <img class="img-circle" src="http://placehold.it/140x140">
-      <h2>One Fluid Grid</h2>
-      <p>There is now just one percentage-based grid for Bootstrap 3. Customize for fixed widths.</p>
+      <img class="img-circle fit" src="http://brucepowerdirect.com/wp-content/uploads/2013/11/dashboard-270x180.png">
+      <h2>Customer analytics</h2>
+      <p>Understand the visiting patterns of your most valued customers using Tally's unique analytics platform, and find new ways to connect with and retain them.</p>
       <p><a class="btn btn-default" href="#">View details »</a></p>
     </div>
     <div class="col-md-4 text-center">
-      <img class="img-circle" src="http://placehold.it/140x140">
-      <h2>LESS is More</h2>
-      <p>Improved support for mixins make the new Bootstrap 3 easier to customize.</p>
+      <img class="img-circle fit" src="http://ijustneedhelpbookkeeping.com.au/wp-content/uploads/2012/12/happy-customer.jpeg">
+      <h2>Marketing, simplified</h2>
+      <p>Choose a customised email marketing plan that completely removes the pain from building relationships with your clients.</p>
       <p><a class="btn btn-default" href="#">View details »</a></p>
     </div>
   </div><!-- /.row -->
@@ -307,24 +313,24 @@ body {
 
   <div class="featurette">
     <img class="featurette-image img-circle pull-right" src="http://placehold.it/512">
-    <h2 class="featurette-heading">Responsive Design. <span class="text-muted">It'll blow your mind.</span></h2>
-    <p class="lead">In simple terms, a responsive web design figures out what resolution of device it's being served on. Flexible grids then size correctly to fit the screen.</p>
+    <h2 class="featurette-heading">Reward your customers. <span class="text-muted">Everybody wins.</span></h2>
+    <p class="lead">Customers check-in using their email address each time they visit and are told how many visits they have left before they earn their loyalty reward. No cards, no stamps. </p>
   </div>
 
   <hr class="featurette-divider">
 
   <div class="featurette">
     <img class="featurette-image img-circle pull-left" src="http://placehold.it/512">
-    <h2 class="featurette-heading">Smaller Footprint. <span class="text-muted">Lightweight.</span></h2>
-    <p class="lead">The new Bootstrap 3 promises to be a smaller build. The separate Bootstrap base and responsive.css files have now been merged into one. There is no more fixed grid, only fluid.</p>
+    <h2 class="featurette-heading">Understand your customers. <span class="text-muted">Study their visiting patterns.</span></h2>
+    <p class="lead">Tally collects data everytime your customers checkin, and relays it to you in a sleek dashboard. You can monitor how regularly your customers visit, and be notified if a regular hasn't returned for a while.</p>
   </div>
 
   <hr class="featurette-divider">
 
   <div class="featurette">
     <img class="featurette-image img-circle pull-right" src="http://placehold.it/512">
-    <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Flatness.</span></h2>
-    <p class="lead">A big design trend for 2013 is "flat" design. Gone are the days of excessive gradients and shadows. Designers are producing cleaner flat designs, and Bootstrap 3 takes advantage of this minimalist trend.</p>
+    <h2 class="featurette-heading">Engage your customers. <span class="text-muted">Build an email list of your most valued customers and keep them informed.</span></h2>
+    <p class="lead">Doing a special offer today? Let your customers know. Have a new product? Let your customers know. The possiblities are endless.</p>
   </div>
 
   <hr class="featurette-divider">
@@ -335,7 +341,7 @@ body {
   <!-- FOOTER -->
   <footer>
     <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>This Bootstrap layout is compliments of Bootply. · <a href="http://www.bootply.com/62603">Edit on Bootply.com</a></p>
+    <p>Tally &copy2014.</p>
   </footer>
 
 </div><!-- /.container -->

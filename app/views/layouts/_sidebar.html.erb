@@ -10,7 +10,7 @@
               	  <h5 class="centered"><%= @name %></h5>
               	  	
                   <li class="mt">
-                      <a class="active" href="<%= root_path %>">
+                      <a <%= request.fullpath == customer_home_path ?  'class="active"' : '' %> href="<%= root_path %>">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>

@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require dashio_theme/jquery-1.8.3.min
-//= require_tree
-//= require_tree ./dashio_theme/
-//= require_tree ./dashio_front/
+// require_tree
+//= require dashio_theme/advanced-datatable/media/js/jquery.dataTables.min
+//= require dashio_theme/chart-master/Chart
 //= require turbolinks
 //= require bootstrap
 
@@ -24,4 +24,15 @@ $(document).ready(function(){
 		$('div.alert').slideToggle(1000)
 	}, 7000);
 	$('div.alert').slideToggle(1000)
+
+	$('.table-striped').dataTable( {
+	  "aoColumnDefs": [
+	      { "bSortable": true, "aTargets": [ 0 ] }
+	  ],
+	  "aaSorting": [[1, 'asc']]
+
+
+	});
+
 })
+

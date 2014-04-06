@@ -11,6 +11,19 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
     @visit=Visit.where(customer_id:@customer.id, business_id:current_business.id)
+            if current_business
+    @name = current_business.name
+    @logo = current_business.logo
+    @business = current_business
+    @email    = current_business.email
+    @street_address = current_business.street_address
+    @phone    = current_business.phone
+    @manager  = current_business.manager
+    @reward   = current_business.reward
+    @req_visits = current_business.req_visits
+    @marketing_package = current_business.marketing_package
+    @photo  = current_business.photo
+    end
   end
 
   # GET /customers/new

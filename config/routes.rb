@@ -4,10 +4,13 @@ TallyApp2::Application.routes.draw do
   devise_for :admins
   # devise_for :admins do get '/admins/sign_out' => 'devise/sessions#destroy' end
   devise_for :businesses, :controllers => { :registrations => "registrations" }
+
+  authenticated :business do
+  root :to => 'static_pages#home', as: :authenticated
+  end
+  root :to => 'static_pages#frontpage'
+  
   devise_for :customers
-
-
-  root  'static_pages#home'
   match '/frontpage',    to: 'static_pages#frontpage',    via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
