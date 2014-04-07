@@ -1,29 +1,52 @@
+body {
+	background-color: #ECF5DD;
+}
+
 .launchapp {
 	margin-top:15px; !important
 }
 .largepanel {
 	font-size: 3em;
 }
-.darkblue {
-	background-color:#2B3856;
+.darkbase {
+	background-color:#8EBD4A;
 }
-.lightblue {
-	background-color:#98AFC7;
+.lightbase {
+	background-color:#A4D15B;
 }
-.lightgrey {
-	background-color:#B6B6B4;
+.lightsecondary {
+	background-color:#ECF5DD;
 }
-.darkerblue {
-	background-color:#212E4C;
+.darkerbase {
+	background-color:#8EBD4A;
 }
-.darkergrey {
-	background-color:#848482;
+.darkersecondary {
+	background-color:#50504F;
 }
-.orange {
-	background-color:#E56717;
+.highlight {
+	background-color:#ed6639;
+}
+.custom-bar-chart .bar .value {
+	background-color: #ed6639;
+}
+ul.top-menu > li > .logout {
+	border-color:#9ED54C;
+	background-color:#9ED54C;
+	color: #999;
+}
+#sidebar {
+	background-color:#50504F;
+}
+.site-footer {
+	background-color:#A4D15B;
+}
+.btn-warning {
+	background-color:#ed6639;
+	border-color: #ed6639;
 }
 .f900 {
 	font-weight:900;
+	color:#555;
 }
 .wrapper {
 	padding-left:0;
@@ -33,14 +56,10 @@
 	min-height:100%;
 }
 a.logo span{
-	color:#FFDB58;
+	color:#fff;
 }
-.site-footer {
-	background-color:#212E4C;
-}
-#sidebar {
-	background-color:#495674;
-}
+
+
 .scaleimage {
 	max-height: 100%;
 	max-width:100%;
@@ -48,12 +67,15 @@ a.logo span{
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
 		background-color:#E56717;
 			font-size: 1.1em;
+			color:#999;
 	}
 ul.sidebar-menu li a i {
 	font-size: 1.1em;
+				color:#999;
 }
 ul.sidebar-menu li a {	
 	font-size: 1.1em;
+				color:#999;
 }
 .img-circle.fit {
 	height: 140px;
@@ -64,13 +86,17 @@ ul.sidebar-menu li a {
 margin-right: 5px;
 }
 .navbar-inverse.frontpage {
-	background-color:#212E4C;
-	color: #999
+	background-color:#8EBD4A;
+	color: #111;
+	border:none;
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
-		background-color:#98AFC7; 
+		background-color:#8EBD4A; 
+			color: #111;
 }
-
+.navbar-inverse .navbar-nav>li>a {
+				color: #111;
+			}
 .dataTables_length {
 width: 40%;
 float: left;
@@ -117,4 +143,9 @@ color: #999;
 }
 .message-p {
 	background-color: none;
+}
+.main-chart {
+	padding-top:0;
+	width:100%;
+
 }

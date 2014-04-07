@@ -2,14 +2,79 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
+     <div class="row">
+                  <div class="col-lg-9 main-chart">
+                  
+                      <!--CUSTOM CHART START -->
+                      <div class="border-head">
+                          <h3>CHECK-INS: LAST 7 DAYS</h3>
+                      </div>
+                      <div class="custom-bar-chart">
+                          <ul class="y-axis">
+                              <li><span></span></li>
+                              <li><span></span></li>
+                              <li><span></span></li>
+                              <li><span></span></li>
+                              <li><span></span></li>
+                              <li><span></span></li>
+                          </ul>
+                          <div class="bar">
+                              <div class="title"><%= @tm6.strftime("%a") %></div>
+                              <div class="value tooltips" data-original-title="<%= @tm6count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm6count %></div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title"><%= @tm5.strftime("%a") %></div>
+                              <div class="value tooltips" data-original-title="<%= @tm5count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm5count %></div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title"><%= @tm4.strftime("%a") %></div>
+                              <div class="value tooltips" data-original-title="<%= @tm4count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm4count %></div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title"><%= @tm3.strftime("%a") %></div>
+                              <div class="value tooltips" data-original-title="<%= @tm3count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm3count %></div>
+                          </div>
+                          <div class="bar">
+                              <div class="title"><%= @tm2.strftime("%a") %></div>
+                              <div class="value tooltips" data-original-title="<%= @tm2count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm2count %></div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title"><%= @tm1.strftime("%a") %></div>
+                              <div class="value tooltips" data-original-title="<%= @tm1count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm1count %></div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">Today</div>
+                              <div class="value tooltips" data-original-title="<%= @todaycount %> visits" data-toggle="tooltip" data-placement="top"><%= @todaycount %></div>
+                          </div>
+                      </div>
+                  </div>
+</div>
+<script>    if ($(".custom-bar-chart")) {
+        $(".bar").each(function () {
+            var i = $(this).find(".value").html();
+            $(this).find(".value").html("");
+            $(this).find(".value").animate({
+                height: i*30
+            }, 2000)
+        })
+    }
+    //    tool tips
 
+    $('.tooltips').tooltip();
+
+//    popovers
+
+    $('.popovers').popover();
+
+
+</script>
   
                       <div class="row">
                       <!-- SERVER STATUS PANELS -->
   
                         <div class="col-md-4 col-sm-4 mb">
-                          <div class="darkblue-panel pn darkblue">
-                            <div class="darkblue-header darkerblue">
+                          <div class="darkblue-panel pn lightbase">
+                            <div class="darkblue-header darkerbase">
                     <h5>TOTAL CHECKINS</h5>
                             </div>
                     <h1><i class="fa fa-3x f900"> <%= Visit.where(:business_id => current_business.id).count  %></i></h1>
@@ -23,8 +88,8 @@
                         </div><!-- /col-md-4 -->
 
                         <div class="col-md-4 col-sm-4 mb">
-                          <div class="darkblue-panel pn lightblue">
-                            <div class="darkblue-header darkblue">
+                          <div class="darkblue-panel pn lightbase">
+                            <div class="darkblue-header darkbase">
                     <h5>TOTAL CUSTOMERS</h5>
                             </div>
                             <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
@@ -38,8 +103,8 @@
                         </div><!-- /col-md-4 -->
                         
                     <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn lightgrey">
-                  <div class="darkblue-header darkergrey">
+                <div class="darkblue-panel pn lightbase">
+                  <div class="darkblue-header darkbase">
                     <h5>AVG VISITS PER CUSTOMER</h5>
                   </div>
   <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count / Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
@@ -87,7 +152,7 @@
             </div><!-- /col-lg-9  -->
                         <!-- WEATHER PANEL -->
             <div class="col-md-4">
-              <div class="weather pn orange">
+              <div class="weather pn highlight">
                 <i class="fa fa-cloud fa-4x"></i>
                 <h2>11º C</h2>
                 <h4>NORWICH</h4>
@@ -103,7 +168,7 @@
 
                                 <!-- PHOTO PANEL -->
             <div class="col-md-4">
-              <div class="weather pn darkblue">
+              <div class="weather pn darkbase">
                 <img src="<%= image_path(@photo) %>" class="behind scaleimage">
                 <h4>Welcome To <%= @name %></h4>
               </div>

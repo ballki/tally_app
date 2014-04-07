@@ -3,7 +3,7 @@
 
 <h2>Rewards for this customer</h2>
 
-<h3>Outstanding</h3>
+<h3><%= Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => false).count %> Outstanding Rewards </h3>
 <% if !Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => false).blank? %>
   <table class="table table-condensed table-bordered table-striped">
     <thead>
@@ -34,7 +34,7 @@
 <p>No rewards outstanding for this customer</p>
 <% end %>
 
-<h3>Redeemed</h3>
+<h3><%= Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => true).count %> Redeemed Rewards</h3>
 <% if !Reward.where(:business_id => current_business.id,:customer_id => @customer.id, :redeemed => true).blank? %>
 <table class="table table-condensed table-bordered table-striped">
   <thead>
