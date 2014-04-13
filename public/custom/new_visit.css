@@ -4,7 +4,9 @@
 
 /* This parent can be any width and height */
 
-
+#main-content {
+    background-color: #000;
+}
 .alert {
          font-size: 2em;
         line-height: 1.4em;
@@ -25,7 +27,7 @@ font-family: 'Lato', Helvetica, Arial, sans-serif;
 position: absolute;
 left: 50%;
 top: 50%;
-height: 300px;
+height: 400px;
 width: 1000px;
 margin-top: -150px;
 margin-left: -500px;

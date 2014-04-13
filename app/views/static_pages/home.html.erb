@@ -1,6 +1,7 @@
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
+  <div class="col-lg-9 mt">   
       <!--main content start-->
      <div class="row">
                   <div class="col-lg-9 main-chart">
@@ -56,6 +57,7 @@
             $(this).find(".value").animate({
                 height: i*30
             }, 2000)
+
         })
     }
     //    tool tips
@@ -75,7 +77,7 @@
                         <div class="col-md-4 col-sm-4 mb">
                           <div class="darkblue-panel pn lightbase">
                             <div class="darkblue-header darkerbase">
-                    <h5>TOTAL CHECKINS</h5>
+                    <h5>TOTAL CHECK-INS</h5>
                             </div>
                     <h1><i class="fa fa-3x f900"> <%= Visit.where(:business_id => current_business.id).count  %></i></h1>
                 <p></p>
@@ -105,9 +107,13 @@
                     <div class="col-md-4 col-sm-4 mb">
                 <div class="darkblue-panel pn lightbase">
                   <div class="darkblue-header darkbase">
-                    <h5>AVG VISITS PER CUSTOMER</h5>
+                    <h5>AVG VISITS</h5>
                   </div>
-  <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count / Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
+            <% if Visit.where(:business_id => current_business.id).distinct.count('customer_id') != 0 %>
+          <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count / Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
+          <% else %>
+          <h1><i class="fa fa-3x f900">0</i></h1>
+          <% end %>
                 <p></p>
                 <footer>
                   <div class="centered">
@@ -174,8 +180,8 @@
               </div>
             </div><!-- /col-md-4-->    
             </div><!-- /row -->
-                      </div>            
-
+          </div>            
+</div>
 
 
 

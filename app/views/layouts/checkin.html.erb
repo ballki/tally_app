@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TallyApp2</title>
+  <%= stylesheet_link_tag    "checkin", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <%= render 'layouts/shim' %>
+<style>
+html, body {
+	height:100%;
+	width:100%;
+	margin:0px;
+}
+#containercheckin {
+    background-image: url('<%= image_path('bgtile.png') %>');
+    margin:0px;
+    height: 100%;
+    width:100%;
+    text-align: center;
+	}
+
+}
+
+
+</style>
+</head>
+<body>
+<div id="containercheckin" class="block">
+     <%= yield %>
+</div>
+
+</body>
+</html>
+
+

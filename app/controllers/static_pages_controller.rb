@@ -35,4 +35,9 @@ class StaticPagesController < ApplicationController
   def frontpage
   end
 
+  def admin
+      @businesses = Business.all
+  end
+
+
 end

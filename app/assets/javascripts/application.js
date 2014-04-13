@@ -20,19 +20,22 @@
 //= require bootstrap
 
 $(document).ready(function(){ 
+	$('div.generalalert').slideDown(4000)
 	setTimeout(function(){
-		$('div.alert').slideToggle(1000)
-	}, 7000);
-	$('div.alert').slideToggle(1000)
+		$('div.generalalert').slideUp(1000)
+	}, 3000);
 
 	$('.table-striped').dataTable( {
 	  "aoColumnDefs": [
 	      { "bSortable": true, "aTargets": [ 0 ] }
 	  ],
 	  "aaSorting": [[1, 'asc']]
-
-
 	});
+
+		$('div.alert').slideDown(4000)
+	setTimeout(function(){
+		$('div.alert').slideUp(1000)
+	}, 7000);
 
 })
 

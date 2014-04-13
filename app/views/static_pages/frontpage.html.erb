@@ -225,7 +225,7 @@ body {
   </ol>
   <div class="carousel-inner">
     <div class="item active">
-      <%= image_tag "frontimage.jpg", :class => "img-responsive" %>
+      <%= image_tag "frontimage2.jpg", :class => "img-responsive" %>
       <div class="container">
         <div class="carousel-caption">
           <h1>Welcome to Tally</h1>
@@ -278,19 +278,19 @@ body {
       <img class="img-circle fit" src="http://ww1.prweb.com/prfiles/2012/02/29/9239098/gI_81293_noshlist-armoractive.jpg">
       <h2>The Tally kiosk</h2>
       <p>A sleek and simple interface allowing customers to check-in to your establishment on each visit and earn loyalty rewards. Gather a database of customer contact details.</p>
-      <p><a class="btn btn-default" href="#">View details »</a></p>
+      <p><a class="btn darkbase" href="#">View details »</a></p>
     </div>
     <div class="col-md-4 text-center">
       <img class="img-circle fit" src="http://brucepowerdirect.com/wp-content/uploads/2013/11/dashboard-270x180.png">
       <h2>Customer analytics</h2>
       <p>Understand the visiting patterns of your most valued customers using Tally's unique analytics platform, and find new ways to connect with and retain them.</p>
-      <p><a class="btn btn-default" href="#">View details »</a></p>
+      <p><a class="btn darkbase" href="#">View details »</a></p>
     </div>
     <div class="col-md-4 text-center">
       <img class="img-circle fit" src="http://ijustneedhelpbookkeeping.com.au/wp-content/uploads/2012/12/happy-customer.jpeg">
       <h2>Marketing, simplified</h2>
       <p>Choose a customised email marketing plan that completely removes the pain from building relationships with your clients.</p>
-      <p><a class="btn btn-default" href="#">View details »</a></p>
+      <p><a class="btn darkbase" href="#">View details »</a></p>
     </div>
   </div><!-- /.row -->
 
@@ -328,8 +328,13 @@ body {
 
   <!-- FOOTER -->
   <footer>
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>Tally &copy2014.</p>
+  <ul class = "navbar-nav nav pull-right">
+    <li><a href="#">Back to top</a></li>
+                <li><%= link_to 'About', about_path, :class => 'navbar-link' %></li>
+              <li><%= link_to 'Help', help_path, :class => 'navbar-link' %></li>
+              <li><%= link_to 'Admin portal', new_admin_session_path, :class => 'navbar-link' %></li>
+    <li style="padding:16px 0px 0px 15px">Tally &copy2014.</li>
+</ul>
   </footer>
 
 </div><!-- /.container -->

@@ -8,6 +8,9 @@ TallyApp2::Application.routes.draw do
   authenticated :business do
   root :to => 'static_pages#home', as: :authenticated
   end
+  authenticated :admin do
+  root :to => 'static_pages#admin', as: :authenticatedadmin
+  end
   root :to => 'static_pages#frontpage'
   
   devise_for :customers
@@ -18,6 +21,8 @@ TallyApp2::Application.routes.draw do
   match '/customer_home', to: 'static_pages#customer_home', via: 'get'
   resources :visits
   resources :customers
+  resources :businesses
+
   get 'businesses/:id/visits' => 'visits#forBusiness', as: :business_visits
 
   put 'rewards/:id' => 'rewards#update', as: :update_reward

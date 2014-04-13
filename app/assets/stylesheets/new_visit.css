@@ -1,0 +1,151 @@
+/*/*// Place all the styles related to the Visits controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* This parent can be any width and height */
+
+.alert {
+         font-size: 2em;
+        line-height: 1.4em;
+        background-color: #2B65EC;
+        color: #fff;
+        text-decoration: none;
+
+}
+.alert-notice {
+font-size: 2.6em;
+font-weight: 100;
+background: rgba(20, 20, 20, .9);
+line-height: 1.4em;
+text-decoration: none;
+text-align: center;
+border:none;
+font-family: 'Lato', Helvetica, Arial, sans-serif;
+position: absolute;
+left: 50%;
+top: 50%;
+height: auto;
+width: 1000px;
+margin-top: -150px;
+margin-left: -500px;
+border: 1px solid #999;
+/*-webkit-box-shadow: 3px 3px 7px #777;*/
+-moz-border-radius: 22px;
+-webkit-border-radius: 22px;
+padding:20px;
+z-index: 2;
+color: #fff;
+    }
+
+.alert-notice h1 {
+    font-family: 'Vollkorn', Georgia;
+    font-size: 2em;
+    font-weight: 900;
+    padding:10px;
+    color: #fff;
+
+}
+.alert-notice h2 {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.alert-notice h3 {
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: 100;
+}
+
+/* This parent can be any width and height */
+.block {
+  text-align: center;
+}
+ 
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can
+   also be of any width and height */ 
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1000px;
+  text-align: center;
+}
+
+img.offer {
+    height: 100px;
+
+}
+img.behind {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+h1 {
+	font-size: 5em;
+	color:white;
+	text-align: center;
+	opacity: 0.6;
+    font-family: 'Vollkorn', Georgia;
+    font-weight: 900;
+    margin:15px 0 15px 0;
+}
+h2 {
+    font-size: 3em;
+    color:white;
+    text-align: center;
+    opacity: 0.6;
+    font-family: sans-serif;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+#back {
+	position:fixed;
+	bottom:0;
+	right:0;
+	padding:20px;
+}
+.fineprint {
+    font-family: helvetica;
+
+}
+
+.form-inline .form-control {
+width:800px;
+height:80px;
+margin:10px;
+font-size: 2em;
+line-height: 2em;
+background: rgba(20, 20, 20, .5);
+opacity: 1;
+padding:20px;
+color:#fff;
+border-radius: 10px;
+    }
+
+.btn {
+    height:80px;
+    background-color: #FFA300;
+    font-size: 1.8em;
+    font-weight:500;
+    border: none;
+    color:#fff; 
+    border-radius: 10px;
+
+}
