@@ -20,10 +20,10 @@
 //= require bootstrap
 
 $(document).ready(function(){ 
+	$('div.alert').slideDown(4000)
 	setTimeout(function(){
-		$('div.alert').slideToggle(1000)
+		$('div.alert').slideUp(1000)
 	}, 7000);
-	$('div.alert').slideToggle(1000)
 
 	$('.table-striped').dataTable( {
 	  "aoColumnDefs": [

@@ -20,6 +20,8 @@
               <ul class="nav pull-right top-menu">
                 <% if business_signed_in? %>
                     <li><%= link_to "Logout", destroy_business_session_path, :method => :delete, :class => 'logout'  %></li>
+                <% elsif admin_signed_in? %>
+                    <li><%= link_to "Logout", destroy_admin_session_path, :method => :delete, :class => 'logout'  %></li>
                 <% else %>
                     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "navbar-form pull-right"} ) do |f| %>
                     <%= f.email_field :email, :autofocus => true, :class => 'span2',:type => 'text',:placeholder => 'Email'   %>

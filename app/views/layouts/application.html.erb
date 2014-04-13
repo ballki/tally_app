@@ -15,39 +15,35 @@
 <body>
     <section id="container">
 
-
-
-
-                <% if business_signed_in? %>
+                <% if business_signed_in? || admin_signed_in? %>
                   <%= render 'layouts/header' %>
                    <%= render 'layouts/sidebar' %>
 
-                      <section id="main-content">
-                      <section class="wrapper">
-                        <div class="col-lg-9 mt">      
-              <% end %>    
-                                            <% if notice %>
-                                            <div class="alert alert-notice hide">
-                                            <%= notice.html_safe %>
-                                            </div>
-                                          <% end %>
-                                          <% if alert %>
-                                            <p class="alert alert-error"><%= alert %></p>
-                                          <% end %>
-           
-                                        <%= yield %>
-                  </div>
-        <% if business_signed_in? %>
-                   <%= render 'layouts/rightsidebar' %>
+    <section id="main-content">
+      <section class="wrapper">
+         <% if notice %>
+            <div class="alert alert-notice">
+            <%= notice.html_safe %>
+            </div>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-error"><%= alert %></p>
+          <% end %>
+          <% end %>
+
+          <%= yield %>
+         <% if business_signed_in? %>
+        <%= render 'layouts/rightsidebar' %>
+          <% end %>
 
 
-                </section>
-              </section>         
-          </div>
-<%= render 'layouts/footer' %>
-        <% end %>
-  </section>
-  
+          </section>
+        </section>
+        </section>
+                <% if business_signed_in? || admin_signed_in? %>
+
+          <%= render 'layouts/footer' %>
+       <% end %>
 </body>
 </html>
 

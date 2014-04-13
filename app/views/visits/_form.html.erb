@@ -1,8 +1,7 @@
-<%= form_for(@visit) do |f| %>
+<%= form_for @visit, html: { :class => "form-inline",:role => "form" } do |f|%>
   <% if @visit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
-
       <ul>
       <% @visit.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,12 +10,9 @@
     </div>
   <% end %>
 
-<form class="visit">
-  <div id="inputblock">
-    <input type="text" name="email" placeholder="Please enter your email address" class="email visit">
-     <%= f.submit 'Go', :class => 'btn' %>
-
+   <div class="form-group">
+    <input type="email" name="email" placeholder="Please enter your email address" class="form-control" id="exampleInputEmail1" >
   </div>
-
+     <%= f.submit 'GO', :class => 'btn btn-default' %>
 </form>
 <% end %>

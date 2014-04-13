@@ -1,0 +1,54 @@
+
+   <div class="col-lg-12 mt">     
+                      <div class="row">
+                      <!-- SERVER STATUS PANELS -->
+  
+                        <div class="col-md-3 col-sm-3 mb">
+                          <div class="darkblue-panel pn lightbase">
+                            <div class="darkblue-header darkerbase">
+                    <h5>BUSINESSES</h5>
+                            </div>
+                    <h1><i class="fa fa-3x f900"> <%= Business.all.count  %></i></h1>
+                <p></p>
+                <footer>
+                  <div class="centered">
+                    <h5 class="mt">using Tally</h5>
+                  </div>
+                </footer>
+                          </div><! -- /darkblue panel -->
+                        </div><!-- /col-md-4 -->
+
+                        <div class="col-md-3 col-sm-3 mb">
+                          <div class="darkblue-panel pn lightbase">
+                            <div class="darkblue-header darkbase">
+                    <h5>TOTAL CUSTOMERS</h5>
+                            </div>
+                            <h1><i class="fa fa-3x f900"><%= Customer.all.count %></i></h1>
+                <p></p>
+                <footer>
+                  <div class="centered">
+                    <h5 class="mt"><i class="fa fa-user"></i> customers using Tally</h5>
+                  </div>
+                </footer>
+                          </div><! -- /darkblue panel -->
+                        </div><!-- /col-md-4 -->
+                        
+                    <div class="col-md-3 col-sm-3 mb">
+                <div class="darkblue-panel pn lightbase">
+                  <div class="darkblue-header darkbase">
+                    <h5>TOTAL VISITS</h5>
+                  </div>
+          <h1><i class="fa fa-3x f900"><%= Visit.all.count %></i></h1>
+                <p></p>
+                <footer>
+                  <div class="centered">
+                    <h5 class="mt">across all businesses</h5>
+                  </div>
+                </footer>
+                </div>
+              </div><! --/col-md-4 -->
+
+                    </div><!-- /row -->
+
+ <%= render 'businesses/index' %>
+</div>

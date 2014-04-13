@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+  <div class="col-lg-9 mt">   
+
 <h1>Customer <%= @customer.id %></h1>
 <p class="pull-right"><%= link_to 'Edit customer details', edit_customer_path(@customer) %> |
 <%= link_to 'Back to dashboard', root_path %></p>
@@ -17,3 +18,4 @@
 
  <%= render 'visits/bycustomer' %>
 
+</div>
