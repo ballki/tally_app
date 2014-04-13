@@ -210,35 +210,36 @@ div.carousel-caption{
 .carousel-caption h1{
 	color:#333;
 }
-.alert {
+.generalalert {
          font-size: 2em;
         line-height: 1.4em;
         background-color: #2B65EC;
         color: #fff;
         text-decoration: none;
+        display: hidden;
 
 }
 .alert-notice {
-font-size: 2.6em;
+font-size: 1em;
 font-weight: 100;
-background-color: #D1D0CE;
+background-color: #FAFDAD;
 line-height: 1.4em;
 text-decoration: none;
 text-align: center;
-border:none;
+border: none;
 font-family: 'Lato', Helvetica, Arial, sans-serif;
 position: absolute;
-left: 50%;
-top: 50%;
-height: 400px;
-width: 1000px;
+right: 40%;
+top: 220px;
+height: auto;
+width: 500px;
 margin-top: -150px;
 margin-left: -500px;
-border: 1px solid #999;
-/*-webkit-box-shadow: 3px 3px 7px #777;*/
+border: 1px solid #EED93F;
+/* -webkit-box-shadow: 3px 3px 7px #777; */
 -moz-border-radius: 22px;
--webkit-border-radius: 22px;
-padding:20px;
+-webkit-border-radius: 10px;
+padding: 20px;
 z-index: 2;
-color: #495674;
-    }
+color: #8D8337;
+}
