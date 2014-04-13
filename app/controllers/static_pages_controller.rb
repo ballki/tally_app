@@ -10,6 +10,8 @@ class StaticPagesController < ApplicationController
     @tm5 = DateTime.now.to_date - 5
     @tm6 = DateTime.now.to_date - 6
     @tm7 = DateTime.now.to_date - 7
+
+  if Visit.all.count != 0
     @todaycount = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@today.to_s).beginning_of_day..Date.parse(@today.to_s).end_of_day)).count
     @tm1count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm1.to_s).beginning_of_day..Date.parse(@tm1.to_s).end_of_day)).count
     @tm2count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm2.to_s).beginning_of_day..Date.parse(@tm2.to_s).end_of_day)).count
@@ -18,6 +20,7 @@ class StaticPagesController < ApplicationController
     @tm5count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm5.to_s).beginning_of_day..Date.parse(@tm5.to_s).end_of_day)).count
     @tm6count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm6.to_s).beginning_of_day..Date.parse(@tm6.to_s).end_of_day)).count
     @tm7count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm7.to_s).beginning_of_day..Date.parse(@tm7.to_s).end_of_day)).count
+  end
 
 
   end
