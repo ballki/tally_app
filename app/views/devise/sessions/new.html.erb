@@ -1,7 +1,7 @@
 
 
 <div class="signinpage">
-      <h2 class="text-center">Admin sign in</h2>
+      <h2 class="text-center">Sign in</h2>
 
       <%= form_for(resource, :as => resource_name, :class => "form-horizontal" , :url => session_path(resource_name)) do |f| %>
         <div class ="row mb mt">
@@ -30,5 +30,4 @@
       <% end %>
 
       <%= render "admins/shared/links" %>
-      <%= render "devise/shared/links" %>
 </div>
