@@ -82,9 +82,8 @@
                       <% if Visit.where(:business_id => current_business.id).count != 0 %>
                             <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count  %></i></h1>
                       <% else %>
-                          <h1><i class="fa fa-3x f900">None</i></h1>
+                          <h1><i class="fa fa-3x f900">0</i></h1>
                       <% end %>
-                    <h1><i class="fa fa-3x f900"> </i></h1>
                 <p></p>
                 <footer>
                   <div class="centered">
@@ -102,7 +101,7 @@
                       <% if Visit.where(:business_id => current_business.id).distinct.count('customer_id') != 0 %>
                             <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
                       <% else %>
-                          <h1><i class="fa fa-3x f900">None</i></h1>
+                          <h1><i class="fa fa-3x f900">0</i></h1>
                      <% end %>
                 <p></p>
                 <footer>

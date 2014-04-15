@@ -41,6 +41,7 @@
                       
                       <!-- RECENT ACTIVITIES SECTION -->
                       <h4 class="centered mt">YOUR PROFILE</h4>
+
                       <p>
                         <strong>Name:</strong>
                         <%= business_details[:name] %>
@@ -90,6 +91,7 @@
                         <strong>Photo:</strong>
                         <%= business_details[:photo] %>
                       </p>
+                      <p>                      <%= link_to 'Edit your profile', edit_business_path(current_business), class: 'btn btn-default' %></p>
                       
                   </div><!-- /col-lg-3 -->
               </div><! --/row -->

@@ -243,3 +243,11 @@ padding: 20px;
 z-index: 2;
 color: #8D8337;
 }
+
+.actions {
+	margin:10px;
+
+}
+.ds a {
+	color:#444;
+}
