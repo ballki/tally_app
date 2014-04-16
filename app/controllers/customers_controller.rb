@@ -24,6 +24,7 @@ class CustomersController < ApplicationController
     @marketing_package = current_business.marketing_package
     @photo  = current_business.photo
     end
+    @customeremail = Customer.where(email:@customeremail)
   end
 
   # GET /customers/new

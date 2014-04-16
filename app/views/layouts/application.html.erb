@@ -27,11 +27,18 @@
             </div>
           <% end %>
           <% if alert %>
-            <p class="generalalert alert-error"><%= alert %></p>
+            <div class="generalalert alert-error"><%= alert %></div>
           <% end %>
           <% end %>
+           <% if business_signed_in? %>
+  <div class="col-lg-9 mt">  
+            <% end %>
 
           <%= yield %>
+                     <% if business_signed_in? %>
+          </div>
+                    <% end %>
+
          <% if business_signed_in? %>
         <%= render 'layouts/rightsidebar' %>
           <% end %>

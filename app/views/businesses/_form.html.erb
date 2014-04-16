@@ -1,4 +1,6 @@
-<%= form_for(@business) do |f| %>
+<div class="row">
+  <div class="col-lg-6 mt">
+<%= form_for(@business, :html => { :role => "form" }) do |f| %>
   <% if @business.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
@@ -11,59 +13,61 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
+    <%= f.text_field :logo, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
-   <div class="field">
+   <div class="form-group">
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.text_field :password, class: "form-control" %>
   </div>
-   <div class="field">
+   <div class="form-group">
     <%= f.label :password_confirmation %><br>
-    <%= f.text_field :password_confirmation %>
+    <%= f.text_field :password_confirmation, class: "form-control" %>
   </div>
-  <div class="field">
+  </div>
+    <div class="col-lg-6 mt">
+  <div class="form-group">
     <%= f.label :street_address %><br>
-    <%= f.text_field :street_address %>
+    <%= f.text_field :street_address, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :manager %><br>
-    <%= f.text_field :manager %>
+    <%= f.text_field :manager, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :reward %><br>
-    <%= f.text_field :reward %>
+    <%= f.text_field :reward, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :req_visits %><br>
-    <%= f.text_field :req_visits %>
+    <%= f.text_field :req_visits, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :marketing_package %><br>
-    <%= f.text_field :marketing_package %>
+    <%= f.text_field :marketing_package, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :photo %><br>
-    <%= f.text_field :photo %>
+    <%= f.text_field :photo, class: "form-control" %>
   </div>
 
-  <div class="actions">
+  <div class="actions pull-right">
     <%= f.submit %>
   </div>
 <% end %>
-
-
+</div>
+</div>
 

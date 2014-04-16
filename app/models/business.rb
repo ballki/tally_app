@@ -5,4 +5,6 @@ class Business < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
  has_many :visits
  has_many :customers, through: :visits
+
+
 end

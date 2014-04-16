@@ -210,16 +210,31 @@ div.carousel-caption{
 .carousel-caption h1{
 	color:#333;
 }
-.generalalert {
-         font-size: 2em;
-        line-height: 1.4em;
-        background-color: #2B65EC;
-        color: #fff;
-        text-decoration: none;
-        display: hidden;
-
+.alert-error {
+font-size: 1em;
+font-weight: 100;
+background-color: #F75D59;
+line-height: 1.4em;
+text-decoration: none;
+text-align: center;
+border: none;
+font-family: 'Lato', Helvetica, Arial, sans-serif;
+position: absolute;
+right: 40%;
+top: 220px;
+height: auto;
+width: 500px;
+margin-top: -150px;
+margin-left: -500px;
+border: 1px solid #E55451;
+/* -webkit-box-shadow: 3px 3px 7px #777; */
+-moz-border-radius: 22px;
+-webkit-border-radius: 10px;
+padding: 20px;
+z-index: 11;
+color: #fff;
 }
-.alert-notice {
+.alert-notice  {
 font-size: 1em;
 font-weight: 100;
 background-color: #FAFDAD;
@@ -240,7 +255,7 @@ border: 1px solid #EED93F;
 -moz-border-radius: 22px;
 -webkit-border-radius: 10px;
 padding: 20px;
-z-index: 2;
+z-index: 11;
 color: #8D8337;
 }
 
@@ -250,4 +265,7 @@ color: #8D8337;
 }
 .ds a {
 	color:#444;
+}
+ul.sidebar-menu li a {
+	color:#fff;
 }
