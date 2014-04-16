@@ -30,14 +30,14 @@
             <div class="generalalert alert-error"><%= alert %></div>
           <% end %>
           <% end %>
-           <% if business_signed_in? %>
+<% if business_signed_in? || admin_signed_in? %>
   <div class="col-lg-9 mt">  
-            <% end %>
+  <% end %>
 
           <%= yield %>
-                     <% if business_signed_in? %>
+<% if business_signed_in? || admin_signed_in? %>
           </div>
-                    <% end %>
+     <% end %>
 
          <% if business_signed_in? %>
         <%= render 'layouts/rightsidebar' %>
