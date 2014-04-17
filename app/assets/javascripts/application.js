@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.autocomplete
 //= require jquery_ujs
 //= require dashio_theme/jquery-1.8.3.min
 // require_tree
@@ -32,10 +33,44 @@ $(document).ready(function(){
 	  "aaSorting": [[1, 'asc']]
 	});
 
-		$('div.alert').slideDown(4000)
+	$('div.alert').slideDown(4000)
 	setTimeout(function(){
 		$('div.alert').slideUp(1000)
 	}, 7000);
+
+// $("#getCustomers").autocomplete({
+//     source: function (request, response) {
+//         $.ajax({
+//             url: "/customeremails",
+//             type: "GET",
+//             cache: false,
+//             dataType: "json",
+//             success: function (data) {
+//                 var arr = [];
+//                 $(data).each(function( index ) {
+//                     arr.push({label:this.email, value:this.email, id:this.id});
+//                 });
+//                 response(arr);
+//             },
+//             data: {
+//                 name: request.term
+//             }
+//         });
+//         // $.get('/customeremails', request.term, function(data) {
+//         // 	var arr = [];
+//         //     $(data).each(function() {
+//         //         arr.push({label:this.email, value:this.email, id:this.id});
+//         //     });
+//         //     response(arr);
+//         // });
+//         // $.post({'/'})
+//     },
+//     select: function( event, ui ) {
+//         // console.log(ui.item);
+//        window.location.href = '/customers/'+ui.item.value
+//     }
+// });	
+
 
 })
 

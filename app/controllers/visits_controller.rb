@@ -36,6 +36,8 @@ class VisitsController < ApplicationController
   # POST /visits.json
 
   def create
+    # render json: params
+
     @customer = Customer.find_by(email: params[:email])
     # Check to see if customer already exists, if not, create a new customer and save
       if !@customer
@@ -48,9 +50,11 @@ class VisitsController < ApplicationController
     @visit.business_id = current_business.id
     @visit.customer_id = @customer.id
     @visit_count=Visit.where(customer_id:@customer.id, business_id:current_business.id).count + 1
+    #anticipate number of visits after saving
     @req_visits = current_business.req_visits
     
     @reward = current_business.reward
+    
     if @req_visits.to_i != 0
       @since_last_reward = @visit_count % @req_visits.to_i
     else
@@ -61,7 +65,9 @@ class VisitsController < ApplicationController
     if @visit_count < @req_visits.to_i
       @notice = '<br/> You only need to visit ' + 
       (@req_visits.to_i - @since_last_reward).to_s + ' more times to earn ' + @reward.to_s + '!'
-    elsif @visit_count % @req_visits.to_i == 0
+    elsif @visit_count == 1 #first time visit
+      @notice = '<h2>Welcome to Tally App. Keep visiting to get awesome rewards'
+    elsif @since_last_reward == 0
           @earned_reward = Reward.new(customer_id:@customer.id, business_id:current_business.id, reward:current_business.reward, redeemed:false, 
             redeemed_at:'')
           @earned_reward.save   

@@ -50,16 +50,19 @@
                       </div>
                   </div>
 </div>
-<script>    if ($(".custom-bar-chart")) {
-        $(".bar").each(function () {
-            var i = $(this).find(".value").html();
-            $(this).find(".value").html("");
-            $(this).find(".value").animate({
-                height: i*30
-            }, 2000)
 
-        })
-    }
+
+<script>   
+  if ($(".custom-bar-chart")) {
+    $(".bar").each(function () {
+      var i = $(this).find(".value").html();
+      $(this).find(".value").html("");
+      $(this).find(".value").animate({
+        height: i*300
+      }, 2000)
+
+    })
+  }
     //    tool tips
 
     $('.tooltips').tooltip();
@@ -70,124 +73,124 @@
 
 
 </script>
-  
-                      <div class="row">
-                      <!-- SERVER STATUS PANELS -->
-  
-                        <div class="col-md-4 col-sm-4 mb">
-                          <div class="darkblue-panel pn lightbase">
-                            <div class="darkblue-header darkerbase">
-                    <h5>TOTAL CHECK-INS</h5>
-                            </div>
-                      <% if Visit.where(:business_id => current_business.id).count != 0 %>
-                            <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count  %></i></h1>
-                      <% else %>
-                          <h1><i class="fa fa-3x f900">0</i></h1>
-                      <% end %>
-                <p></p>
-                <footer>
-                  <div class="centered">
-                    <h5 class="mt">since you joined Tally</h5>
-                  </div>
-                </footer>
-                          </div><! -- /darkblue panel -->
-                        </div><!-- /col-md-4 -->
 
-                        <div class="col-md-4 col-sm-4 mb">
-                          <div class="darkblue-panel pn lightbase">
-                            <div class="darkblue-header darkbase">
-                    <h5>TOTAL CUSTOMERS</h5>
-                            </div>
-                      <% if Visit.where(:business_id => current_business.id).distinct.count('customer_id') != 0 %>
-                            <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
-                      <% else %>
-                          <h1><i class="fa fa-3x f900">0</i></h1>
-                     <% end %>
-                <p></p>
-                <footer>
-                  <div class="centered">
-                    <h5 class="mt"><i class="fa fa-user"></i> loyal customers</h5>
-                  </div>
-                </footer>
-                          </div><! -- /darkblue panel -->
-                        </div><!-- /col-md-4 -->
-                        
-                    <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn lightbase">
-                  <div class="darkblue-header darkbase">
-                    <h5>AVG VISITS</h5>
-                  </div>
-            <% if Visit.where(:business_id => current_business.id).distinct.count('customer_id') != 0 %>
-          <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count / Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
+<div class="row">
+  <!-- SERVER STATUS PANELS -->
+  
+  <div class="col-md-4 col-sm-4 mb">
+    <div class="darkblue-panel pn lightbase">
+      <div class="darkblue-header darkerbase">
+        <h5>TOTAL CHECK-INS</h5>
+      </div>
+      <% if Visit.where(:business_id => current_business.id).count != 0 %>
+      <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count  %></i></h1>
+      <% else %>
+      <h1><i class="fa fa-3x f900">0</i></h1>
+      <% end %>
+      <p></p>
+      <footer>
+        <div class="centered">
+          <h5 class="mt">since you joined Tally</h5>
+        </div>
+      </footer>
+    </div><! -- /darkblue panel -->
+  </div><!-- /col-md-4 -->
+
+  <div class="col-md-4 col-sm-4 mb">
+    <div class="darkblue-panel pn lightbase">
+      <div class="darkblue-header darkbase">
+        <h5>TOTAL CUSTOMERS</h5>
+      </div>
+      <% if Visit.where(:business_id => current_business.id).distinct.count('customer_id') != 0 %>
+      <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
+      <% else %>
+      <h1><i class="fa fa-3x f900">0</i></h1>
+      <% end %>
+      <p></p>
+      <footer>
+        <div class="centered">
+          <h5 class="mt"><i class="fa fa-user"></i> loyal customers</h5>
+        </div>
+      </footer>
+    </div><! -- /darkblue panel -->
+  </div><!-- /col-md-4 -->
+
+  <div class="col-md-4 col-sm-4 mb">
+    <div class="darkblue-panel pn lightbase">
+      <div class="darkblue-header darkbase">
+        <h5>AVG VISITS</h5>
+      </div>
+      <% if Visit.where(:business_id => current_business.id).distinct.count('customer_id') != 0 %>
+      <h1><i class="fa fa-3x f900"><%= Visit.where(:business_id => current_business.id).count / Visit.where(:business_id => current_business.id).distinct.count('customer_id') %></i></h1>
           <% else %>
           <h1><i class="fa fa-3x f900">0</i></h1>
           <% end %>
-                <p></p>
-                <footer>
-                  <div class="centered">
-                    <h5 class="mt">per customer</h5>
-                  </div>
-                </footer>
+          <p></p>
+          <footer>
+            <div class="centered">
+              <h5 class="mt">per customer</h5>
+            </div>
+          </footer>
+        </div>
+      </div><! --/col-md-4 -->
+
+    </div><!-- /row -->
+
+
+    <div class="row mb">
+
+      <!-- DIRECT MESSAGE PANEL -->
+      <div class="col-md-8">
+        <div class="message-p pn">
+          <div class="message-header">
+            <h5>REDEEM REWARD</h5>
+          </div>
+          <div class="row">
+            <div class="col-md-3 centered hidden-sm hidden-xs">
+              <h1><i class="fa fa-trophy fa-3x"></i></h1>
+            </div>
+            <div class="col-md-9">
+              <p>Enter the customer's email here:</p>
+              <p class="message">Enter a customer to see a list of their rewards and redeem any outstanding ones.</p>
+
+              <form class="form-inline" role="form">
+                <div class="form-group">
+                  <input type="text" name="q" class="form-control" id="getCustomers" placeholder="Customer email">
                 </div>
-              </div><! --/col-md-4 -->
+                <button type="submit" class="btn btn-default">Go</button>
+              </form>
+              <br/>
+              <p class="message">Or search for the customer in the table below.</p>
+            </div>
+          </div>
+        </div><!-- /Message Panel-->
+      </div><!-- /col-lg-9  -->
+      <!-- WEATHER PANEL -->
+      <div class="col-md-4">
+        <div class="weather pn highlight">
+          <i class="fa fa-cloud fa-4x"></i>
+          <h2>11º C</h2>
+          <h4>NORWICH</h4>
+        </div>
+      </div><!-- /col-md-4-->
 
-                    </div><!-- /row -->
-                    
-          
-           <div class="row mb">
+    </div><!-- /row -->
 
-            <!-- DIRECT MESSAGE PANEL -->
-            <div class="col-md-8">
-              <div class="message-p pn">
-                <div class="message-header">
-                  <h5>REDEEM REWARD</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-3 centered hidden-sm hidden-xs">
-                    <h1><i class="fa fa-trophy fa-3x"></i></h1>
-                  </div>
-                  <div class="col-md-9">
-                    <p>Enter the customer's email here:</p>
-                    <p class="message">Enter a customer to see a list of their rewards and redeem any outstanding ones.</p>
+    <div class="row mb">
+      <div class="col-md-8">
+        <%= render :partial => '/visits/bybusiness' %>
+      </div>
 
-                    <form class="form-inline" role="form">
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputText" placeholder="Customer email">
-                      </div>
-                      <button type="submit" class="btn btn-default">Go</button>
-                    </form>
-                    <br/>
-                  <p class="message">Or search for the customer in the table below.</p>
-                  </div>
-                </div>
-              </div><!-- /Message Panel-->
-            </div><!-- /col-lg-9  -->
-                        <!-- WEATHER PANEL -->
-            <div class="col-md-4">
-              <div class="weather pn highlight">
-                <i class="fa fa-cloud fa-4x"></i>
-                <h2>11º C</h2>
-                <h4>NORWICH</h4>
-              </div>
-            </div><!-- /col-md-4-->
+      <!-- PHOTO PANEL -->
+      <div class="col-md-4">
+        <div class="weather pn darkbase">
+          <img src="<%= image_path(@photo) %>" class="behind scaleimage">
+          <h4>Welcome To <%= @name %></h4>
+        </div>
+      </div><!-- /col-md-4-->    
+    </div><!-- /row -->
 
-         </div><!-- /row -->
-
-              <div class="row mb">
-                        <div class="col-md-8">
-                      <%= render :partial => '/visits/bybusiness' %>
-                  </div>
-
-                                <!-- PHOTO PANEL -->
-            <div class="col-md-4">
-              <div class="weather pn darkbase">
-                <img src="<%= image_path(@photo) %>" class="behind scaleimage">
-                <h4>Welcome To <%= @name %></h4>
-              </div>
-            </div><!-- /col-md-4-->    
-            </div><!-- /row -->
-       
-</div>
+  </div>
 
 
 

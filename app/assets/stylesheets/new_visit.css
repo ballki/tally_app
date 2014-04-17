@@ -5,37 +5,37 @@
 /* This parent can be any width and height */
 
 .alert {
-         font-size: 2em;
-        line-height: 1.4em;
-        background-color: #2B65EC;
-        color: #fff;
-        text-decoration: none;
+   font-size: 2em;
+   line-height: 1.4em;
+   background-color: #2B65EC;
+   color: #fff;
+   text-decoration: none;
 
 }
 .alert-notice {
-font-size: 2.6em;
-font-weight: 100;
-background: rgba(20, 20, 20, .9);
-line-height: 1.4em;
-text-decoration: none;
-text-align: center;
-border:none;
-font-family: 'Lato', Helvetica, Arial, sans-serif;
-position: absolute;
-left: 50%;
-top: 50%;
-height: auto;
-width: 1000px;
-margin-top: -150px;
-margin-left: -500px;
-border: 1px solid #999;
-/*-webkit-box-shadow: 3px 3px 7px #777;*/
--moz-border-radius: 22px;
--webkit-border-radius: 22px;
-padding:20px;
-z-index: 2;
-color: #fff;
-    }
+    font-size: 2.6em;
+    font-weight: 100;
+    background: rgba(20, 20, 20, .9);
+    line-height: 1.4em;
+    text-decoration: none;
+    text-align: center;
+    border:none;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: auto;
+    width: 1000px;
+    margin-top: -150px;
+    margin-left: -500px;
+    border: 1px solid #999;
+    /*-webkit-box-shadow: 3px 3px 7px #777;*/
+    -moz-border-radius: 22px;
+    -webkit-border-radius: 22px;
+    padding:20px;
+    z-index: 2;
+    color: #fff;
+}
 
 .alert-notice h1 {
     font-family: 'Vollkorn', Georgia;
@@ -62,7 +62,7 @@ color: #fff;
 .block {
   text-align: center;
 }
- 
+
 /* The ghost, nudged to maintain perfect centering */
 .block:before {
   content: '';
@@ -73,11 +73,11 @@ color: #fff;
 }
 
 /* The element to be centered, can
-   also be of any width and height */ 
+also be of any width and height */ 
 .centered {
   display: inline-block;
   vertical-align: middle;
-  width: 1000px;
+  width: 100%;
   text-align: center;
 }
 
@@ -127,17 +127,17 @@ h2 {
 }
 
 .form-inline .form-control {
-width:800px;
-height:80px;
-margin:10px;
-font-size: 2em;
-line-height: 2em;
-background: rgba(20, 20, 20, .5);
-opacity: 1;
-padding:20px;
-color:#fff;
-border-radius: 10px;
-    }
+    width:80%;
+    height:80px;
+    margin:10px;
+    font-size: 2em;
+    line-height: 2em;
+    background: rgba(20, 20, 20, .5);
+    opacity: 1;
+    padding:20px;
+    color:#fff;
+    border-radius: 10px;
+}
 
 .btn {
     height:80px;
@@ -148,4 +148,17 @@ border-radius: 10px;
     color:#fff; 
     border-radius: 10px;
 
+}
+body {
+    /*height:100%;*/
+    width:100%;
+    margin:0px;
+    /*position: fixed;*/
+}
+#containercheckin {
+    background-image: url('/assets/bgtile.png');
+    margin:0px;
+    height: 100%;
+    width:100%;
+    text-align: center;
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416133743) do
+ActiveRecord::Schema.define(version: 20140324174513) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20140416133743) do
   add_index "customers", ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
 
   create_table "rewards", force: true do |t|
-    t.integer  "business_id", limit: 255
-    t.integer  "customer_id", limit: 255
+    t.integer  "business_id"
+    t.integer  "customer_id"
     t.string   "reward"
     t.boolean  "redeemed"
     t.datetime "redeemed_at"
@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20140416133743) do
   end
 
   create_table "visits", force: true do |t|
-    t.integer  "business_id", limit: 255
-    t.integer  "customer_id", limit: 255
+    t.integer  "business_id"
+    t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

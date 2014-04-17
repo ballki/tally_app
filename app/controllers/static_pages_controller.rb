@@ -20,6 +20,11 @@ class StaticPagesController < ApplicationController
     @tm5count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm5.to_s).beginning_of_day..Date.parse(@tm5.to_s).end_of_day)).count
     @tm6count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm6.to_s).beginning_of_day..Date.parse(@tm6.to_s).end_of_day)).count
     @tm7count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm7.to_s).beginning_of_day..Date.parse(@tm7.to_s).end_of_day)).count
+  
+    # get the largest tm
+    # $multiplier =  300/@tm 
+    # tms.each
+
   end
 
 

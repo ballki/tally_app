@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, except: [:create, :new, :show, :destroy]
+  before_action :authenticate_admin!, except: [:create, :new, :show, :destroy, :emails]
   # GET /customers
   # GET /customers.json
   def index
@@ -75,6 +75,18 @@ class CustomersController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
+  end
+
+  def emails
+    results = Customer.where('email LIKE ?', "%#{params['q']}%")
+
+    bunch = []
+    results.each do |c|
+      bunch << c['email']
+    end
+
+    render json: bunch
+    # render json: results
   end
 
   private
