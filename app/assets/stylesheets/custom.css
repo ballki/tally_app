@@ -1,3 +1,5 @@
+
+
 * {
 	margin: 0;
 }
@@ -265,6 +267,9 @@ color: #8D8337;
 }
 .ds a {
 	color:#444;
+}
+.ds {
+    padding-bottom: 15px;
 }
 ul.sidebar-menu li a {
 	color:#fff;

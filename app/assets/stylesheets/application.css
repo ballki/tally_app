@@ -9,7 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
   *= require_self 
   *= require bootstrap.min
-  *= require_tree ./dashio_theme/
+  *= require dashio_theme/style
+  *= require dashio_theme/style-responsive
   *= require_tree ./font-awesome/
   *= require custom
  *

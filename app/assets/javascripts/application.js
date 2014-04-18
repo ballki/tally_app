@@ -14,6 +14,7 @@
 //= require jquery.autocomplete
 //= require jquery_ujs
 //= require dashio_theme/jquery-1.8.3.min
+//= require dashio_theme/common-scripts
 // require_tree
 //= require dashio_theme/advanced-datatable/media/js/jquery.dataTables.min
 //= require dashio_theme/chart-master/Chart
