@@ -8,6 +8,7 @@ html, body {
 }
 .wrapper {
 	margin-bottom: 70px;
+	margin-top:0px;
 }
 #container {
 	min-height: 100%;
@@ -273,4 +274,8 @@ color: #8D8337;
 }
 ul.sidebar-menu li a {
 	color:#fff;
+}
+.p15 {
+	padding:15px;
+	background-color: #3c3c3c;
 }

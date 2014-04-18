@@ -30,6 +30,98 @@
 
               </ul>
               <!-- sidebar menu end-->
+      <div class="p15">
+      <!--COMPLETED ACTIONS DONUTS CHART-->
+         <div class="donut-main">
+            <h4>Welcome to your dashboard, <%= business_details[:name] %></h4>
+            <canvas id="newchart" height="130" width="130"></canvas>
+            <script>
+              var doughnutData = [
+                  {
+                    value: 70,
+                    color:"#ed6639"
+                  },
+                  {
+                    value : 30,
+                    color : "#848482"
+                  }
+                ];
+                var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
+            </script>
           </div>
+                  
+                      <!--NEW EARNING STATS -->
+                      <div class="panel terques-chart">
+                          <div class="panel-body">
+                              <div class="chart">
+                                  <div class="centered">
+                                      <span>CUSTOMER GROWTH RATE:</span>
+                                      <strong>15% PER WEEK</strong>
+                                  </div>
+                                  <br>
+                                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
+                              </div>
+                          </div>
+                      </div>
+                      <!--new earning end-->
+                      
+                      <!-- RECENT ACTIVITIES SECTION -->
+                      <h4 class="centered mt">YOUR PROFILE</h4>
+
+                      <p>
+                        <strong>Name:</strong>
+                        <%= business_details[:name] %>
+                      </p>
+
+                      <p>
+                        <strong>Logo:</strong>
+                        <%= business_details[:logo] %>
+                      </p>
+
+                      <p>
+                        <strong>Email:</strong>
+                        <%= business_details[:email] %>
+                      </p>
+
+                      <p>
+                        <strong>Street address:</strong>
+                        <%= business_details[:street_address] %>
+                      </p>
+
+                      <p>
+                        <strong>Phone:</strong>
+                        <%= business_details[:phone] %>
+                      </p>
+
+                      <p>
+                        <strong>Manager:</strong>
+                        <%= business_details[:manager] %>
+                      </p>
+
+                      <p>
+                        <strong>Reward:</strong>
+                        <%= business_details[:reward] %>
+                      </p>
+
+                      <p>
+                        <strong>Req visits:</strong>
+                        <%= business_details[:req_visits] %>
+                      </p>
+
+                      <p>
+                        <strong>Marketing package:</strong>
+                        <%= business_details[:marketing_package] %>
+                      </p>
+
+                      <p>
+                        <strong>Photo:</strong>
+                        <%= business_details[:photo] %>
+                      </p>
+                      <p>                      <%= link_to 'Edit your profile', edit_business_path(current_business), class: 'btn btn-default' %></p>
+                      
+                  </div><!-- /col-lg-3 -->
+              </div><! --/row -->
+            </div>
+                <div class="push"></div>
       </aside>
       <!--sidebar end-->
