@@ -10,14 +10,14 @@
               	  	
                   <li class="mt">
                       <a <%= request.fullpath == root_path ?  'class="active"' : '' %> href="<%= root_path %>">
-                          <i class="fa fa-dashboard"></i>
+                          <i class="fa"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
                       <a href="<%= customer_home_path %>" >
-                          <i class="fa fa-user"></i>
+                          <i class="fa"></i>
                           <span>Customers</span>
                       </a>
 <!--                       <ul class="sub">
@@ -65,63 +65,11 @@
                       </div>
                       <!--new earning end-->
                       
-                      <!-- RECENT ACTIVITIES SECTION -->
-                      <h4 class="centered mt">YOUR PROFILE</h4>
 
-                      <p>
-                        <strong>Name:</strong>
-                        <%= business_details[:name] %>
-                      </p>
-
-                      <p>
-                        <strong>Logo:</strong>
-                        <%= business_details[:logo] %>
-                      </p>
-
-                      <p>
-                        <strong>Email:</strong>
-                        <%= business_details[:email] %>
-                      </p>
-
-                      <p>
-                        <strong>Street address:</strong>
-                        <%= business_details[:street_address] %>
-                      </p>
-
-                      <p>
-                        <strong>Phone:</strong>
-                        <%= business_details[:phone] %>
-                      </p>
-
-                      <p>
-                        <strong>Manager:</strong>
-                        <%= business_details[:manager] %>
-                      </p>
-
-                      <p>
-                        <strong>Reward:</strong>
-                        <%= business_details[:reward] %>
-                      </p>
-
-                      <p>
-                        <strong>Req visits:</strong>
-                        <%= business_details[:req_visits] %>
-                      </p>
-
-                      <p>
-                        <strong>Marketing package:</strong>
-                        <%= business_details[:marketing_package] %>
-                      </p>
-
-                      <p>
-                        <strong>Photo:</strong>
-                        <%= business_details[:photo] %>
-                      </p>
-                      <p>                      <%= link_to 'Edit your profile', edit_business_path(current_business), class: 'btn btn-default' %></p>
+                      <p>                      <%= link_to 'Edit your profile', edit_business_path(current_business), class: 'btn btn-primary' %></p>
                       
                   </div><!-- /col-lg-3 -->
               </div><! --/row -->
             </div>
-                <div class="push"></div>
       </aside>
       <!--sidebar end-->
