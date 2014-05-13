@@ -1,15 +1,19 @@
 
 
 <div class="centered">
-	<% if notice %>
+    <div style="position: absolute; left: 50%;">
+        <div style="position: relative; left: -50%; z-index:20;">
+        	<% if notice %>
 	<div class="alert alert-notice">
 		<%= notice.html_safe %>
 	</div>
+
 	<% end %>
 	<% if alert %>
 	<p class="alert alert-error"><%= alert %></p>
 	<% end %>
-
+	</div>
+	</div>
 	<!-- <img src="<%= image_path(@logo) %>" class="offer"> -->
 	<h1>Welcome to <%= @name %></h1>
 	<h2> Check in <%= @req_visits %> times to receive <%= @reward %></h2>

@@ -16,26 +16,29 @@
 .alert-notice {
     font-size: 2.6em;
     font-weight: 100;
-    background: rgba(20, 20, 20, .9);
+    background: rgba(255, 102, 0, .9);
     line-height: 1.4em;
     text-decoration: none;
     text-align: center;
     border:none;
     font-family: 'Lato', Helvetica, Arial, sans-serif;
-    position: absolute;
-    left: 50%;
     top: 50%;
     height: auto;
-    width: 80%;
+    width: 800px;
     margin-top: -150px;
-    margin-left: -500px;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid #999;
     /*-webkit-box-shadow: 3px 3px 7px #777;*/
     -moz-border-radius: 22px;
     -webkit-border-radius: 22px;
     padding:20px;
-    z-index: 2;
+    z-index: 20;
     color: #fff;
+}
+.centerednotice {
+    position: relative;
+    left: -50%;
 }
 
 .alert-notice h1 {
