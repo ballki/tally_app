@@ -67,21 +67,12 @@
   text-align: center;
 }
 
-/* The ghost, nudged to maintain perfect centering */
-.block:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -0.25em; /* Adjusts for spacing */
-}
 
 /* The element to be centered, can
 also be of any width and height */ 
 .centered {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+    display: inline-block;
+    margin-top: 5em;
 }
 
 img.offer {
@@ -107,6 +98,7 @@ h1 {
     font-family: 'Vollkorn', Georgia;
     font-weight: 900;
     margin:15px 0 15px 0;
+    display: inline-block;
 }
 h2 {
     font-size: 3em;
@@ -115,7 +107,7 @@ h2 {
     opacity: 0.6;
     font-family: sans-serif;
     font-weight: 300;
-    margin-bottom: 40px;
+    margin-bottom: 1em;
 }
 
 #back {
@@ -156,7 +148,7 @@ h2 {
 #containercheckin {
     background-image: url('/assets/bgtile.png');
     margin:0px;
-    height: 100%;
+    min-height: 100%;
     width:100%;
     text-align: center;
 }
