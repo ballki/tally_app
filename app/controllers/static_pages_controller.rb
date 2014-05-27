@@ -41,6 +41,7 @@ class StaticPagesController < ApplicationController
   end
 
   def frontpage
+ render :layout => false
   end
 
   def admin
