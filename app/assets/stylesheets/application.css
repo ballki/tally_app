@@ -11,6 +11,6 @@
   *= require bootstrap.min
   *= require dashio_theme/style
   *= require dashio_theme/style-responsive
-  *= require_tree
+  *= require_tree ./font-awesome/
   *= require custom
  */
