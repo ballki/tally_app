@@ -278,3 +278,21 @@ ul.sidebar-menu li a {
 	padding:15px;
 	background-color: #3c3c3c;
 }
+.dataTables_filter {
+	font-size: 2em;
+	float:left;
+	text-align: left;
+	margin-left:8px;
+	width:70%;
+}
+.dataTables_filter input {
+	width:80%;
+}
+.dataTables_filter label {
+	width:100%;
+}
+.dataTables_length {
+	float:right;
+	width:auto;
+	margin-right: 8px;
+}
