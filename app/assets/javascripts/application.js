@@ -22,10 +22,10 @@
 //= require bootstrap
 
 $(document).ready(function(){ 
-	$('div.generalalert').slideDown(4000)
+	$('div.generalalert').slideDown(2000)
 	setTimeout(function(){
-		$('div.generalalert').slideUp(1000)
-	}, 3000);
+		$('div.generalalert').slideUp(2000)
+	}, 5000);
 
 	$('.table-striped').dataTable( {
 	  "aoColumnDefs": [
@@ -34,10 +34,10 @@ $(document).ready(function(){
 	  "aaSorting": [[1, 'asc']]
 	});
 
-	$('div.alert').slideDown(4000)
+	$('div.alert').slideDown(2000)
 	setTimeout(function(){
-		$('div.alert').slideUp(1000)
-	}, 7000);
+		$('div.alert').slideUp(2000)
+	}, 5000);
 
 // $("#getCustomers").autocomplete({
 //     source: function (request, response) {

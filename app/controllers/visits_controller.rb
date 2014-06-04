@@ -63,24 +63,24 @@ class VisitsController < ApplicationController
 
     # Check how many visits customer has until reward and display in notice
     if @visit_count < @req_visits.to_i
-      @notice = '<br/> You only need to visit ' + 
+      @notice = '<p>You only need to visit <p>' + 
       (@req_visits.to_i - @since_last_reward).to_s + ' more times to earn ' + @reward.to_s + '!'
     elsif @visit_count == 1 #first time visit
-      @notice = '<h2>Welcome to Tally App. Keep visiting to get awesome rewards'
+      @notice = '<p>Welcome to Tally App. Keep visiting to get awesome rewards'
     elsif @since_last_reward == 0
           @earned_reward = Reward.new(customer_id:@customer.id, business_id:current_business.id, reward:current_business.reward, redeemed:false, 
             redeemed_at:'')
           @earned_reward.save   
-      @notice = '<h2>You have earned ' + @reward.to_s + '!</h2>'
+      @notice = '<p>You have earned ' + @reward.to_s + '!</p>'
     else
-      @notice = '<h2>You have visited ' + @since_last_reward.to_s + ' times since your last reward, and only need to visit ' + 
-      (@req_visits.to_i - @since_last_reward).to_s + ' more times to earn ' + @reward.to_s + '!</h2>'
+      @notice = '<p>You have visited ' + @since_last_reward.to_s + ' times since your last reward, and only need to visit ' + 
+      (@req_visits.to_i - @since_last_reward).to_s + ' more times to earn ' + @reward.to_s + '!</p>'
     end
 
     # Save visit and show message
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to new_visit_path, notice: '<h1>THANKS FOR COMING</h1> ' + @notice}
+        format.html { redirect_to new_visit_path, notice: '<h1>THANKS FOR COMING</h1> ' + @notice }
         format.json { render action: 'show', status: :created, location: @visit }
       else
         format.html { render action: 'new' }
