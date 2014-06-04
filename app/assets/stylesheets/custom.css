@@ -27,7 +27,7 @@ body {
 	margin:15px;
 }
 .launchapp {
-	margin-top:15px; !important
+	margin-top:15px !important;
 }
 .largepanel {
 	font-size: 3em;
@@ -130,7 +130,7 @@ margin-right: 5px;
 .navbar-inverse.frontpage {
 	background-color:#8EBD4A;
 	color: #111;
-	border:none!important;
+	border:none !important;
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
 		background-color:#A4D15B!important; 
@@ -138,10 +138,10 @@ margin-right: 5px;
 
 }
 .navbar-inverse .navbar-nav>li>a {
-				color: #fff!important;
+				color: #fff !important;
 			}
 .navbar-inverse .navbar-nav>li>a:hover {
-				color: #333!important;
+				color: #333 !important;
 			}
 .dataTables_length {
 width: 40%;
@@ -203,7 +203,7 @@ color: #999;
 }
 div.carousel-caption{
 	color:#8EBD4A;
-	text-shadow:none; important!
+	text-shadow:none !important;
 }
 .carousel-caption p{
 	color:#666;
@@ -276,4 +276,22 @@ ul.sidebar-menu li a {
 .p15 {
 	padding:15px;
 	background-color: #3c3c3c;
+}
+.dataTables_filter {
+	font-size: 2em;
+	float:left;
+	text-align: left;
+	margin-left:8px;
+	width:70%;
+}
+.dataTables_filter input {
+	width:80%;
+}
+.dataTables_filter label {
+	width:100%;
+}
+.dataTables_length {
+	float:right;
+	width:auto;
+	margin-right: 8px;
 }

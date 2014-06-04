@@ -7,12 +7,10 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- += Dir["#{Rails.root}/assets/font-awesome/*"].sort_by { |dir| -dir.size }
   *= require_self 
   *= require bootstrap.min
   *= require dashio_theme/style
   *= require dashio_theme/style-responsive
   *= require_tree ./font-awesome/
   *= require custom
- *
  */
