@@ -5,54 +5,12 @@
 
 
       <!--main content start-->
-      <div class="row">
-        <div class="col-lg-9 main-chart">
 
-          <!--CUSTOM CHART START -->
-          <div class="border-head">
-            <h3>CHECK-INS: LAST 7 DAYS</h3>
-          </div>
-          <div class="custom-bar-chart">
-            <ul class="y-axis">
-              <li><span class="tm6"></span></li>
-              <li><span class="tm5"></span></li>
-              <li><span class="tm4"></span></li>
-              <li><span class="tm3"></span></li>
-              <li><span class="tm2"></span></li>
-              <li><span class="tm1"></span></li>
-            </ul>
-            <div class="bar">
-              <div class="title"><%= @tm6.strftime("%a") %></div>
-              <div class="value tooltips" data-original-title="<%= @tm6count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm6count %></div>
+<div class="row">
+          <div class="col-lg-12">
+            <div id="fullwidth">
+            <canvas id="myChart"></canvas>
             </div>
-            <div class="bar ">
-              <div class="title"><%= @tm5.strftime("%a") %></div>
-              <div class="value tooltips" data-original-title="<%= @tm5count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm5count %></div>
-            </div>
-            <div class="bar ">
-              <div class="title"><%= @tm4.strftime("%a") %></div>
-              <div class="value tooltips" data-original-title="<%= @tm4count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm4count %></div>
-            </div>
-            <div class="bar ">
-              <div class="title"><%= @tm3.strftime("%a") %></div>
-              <div class="value tooltips" data-original-title="<%= @tm3count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm3count %></div>
-            </div>
-            <div class="bar">
-              <div class="title"><%= @tm2.strftime("%a") %></div>
-              <div class="value tooltips" data-original-title="<%= @tm2count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm2count %></div>
-            </div>
-            <div class="bar ">
-              <div class="title"><%= @tm1.strftime("%a") %></div>
-              <div class="value tooltips" data-original-title="<%= @tm1count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm1count %></div>
-            </div>
-            <div class="bar">
-              <div class="title">Today</div>
-              <div class="value tooltips" data-original-title="<%= @todaycount %> visits" data-toggle="tooltip" data-placement="top"><%= @todaycount %></div>
-            </div>
-          </div>
-
-          <canvas id="myChart" style="width:100%" height="400"></canvas>
-
         </div>
 </div>
 
@@ -67,16 +25,9 @@
   $('span.tm2').html(noDecimals(topVal/5*1));
   $('span.tm1').html(0);
  
-  if ($(".custom-bar-chart")) {
-    $(".bar").each(function () {
-      var i = $(this).find(".value").html();
-      $(this).find(".value").html("");
-      $(this).find(".value").animate({
-        height: 289*i/topVal
-      }, 2000)
 
-    })
-  }
+  
+
   // tool tips
 
   $('.tooltips').tooltip();
@@ -125,12 +76,19 @@ var options = {
 
   //Number - Number of animation steps
   animationSteps : 10,
+    //Number - Spacing between each of the X value sets
+  barValueSpacing : 20,
 }
+var canvas = document.getElementById("myChart");
+var parent = document.getElementById("fullwidth");
+canvas.width = parent.offsetWidth;
+canvas.height = parent.offsetHeight;
 
-var myNewChart = new Chart(ctx).Bar(data,options);
+var myChart = new Chart(ctx).Bar(data,options);
 
 
-</script>
+    </script>
+
 
 <div class="row">
   <!-- SERVER STATUS PANELS -->

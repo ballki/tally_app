@@ -22,14 +22,14 @@ class StaticPagesController < ApplicationController
     @tm7count = Visit.where(:business_id => current_business.id,created_at: (Date.parse(@tm7.to_s).beginning_of_day..Date.parse(@tm7.to_s).end_of_day)).count
   
     # Generating random values
-    @todaycount = rand(40)
-    @tm1count = rand(40)
-    @tm2count = rand(40)
-    @tm3count = rand(40)
-    @tm4count = rand(40)
-    @tm5count = rand(40)
-    @tm6count = rand(40)
-    @tm7count = rand(40)
+    # @todaycount = rand(40)
+    # @tm1count = rand(40)
+    # @tm2count = rand(40)
+    # @tm3count = rand(40)
+    # @tm4count = rand(40)
+    # @tm5count = rand(40)
+    # @tm6count = rand(40)
+    # @tm7count = rand(40)
 
     # get the largest tm
     @l_value = [
