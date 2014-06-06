@@ -2,74 +2,132 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
   
+
+
       <!--main content start-->
-     <div class="row">
-                  <div class="col-lg-9 main-chart">
-                  
-                      <!--CUSTOM CHART START -->
-                      <div class="border-head">
-                          <h3>CHECK-INS: LAST 7 DAYS</h3>
-                      </div>
-                      <div class="custom-bar-chart">
-                          <ul class="y-axis">
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                          </ul>
-                          <div class="bar">
-                              <div class="title"><%= @tm6.strftime("%a") %></div>
-                              <div class="value tooltips" data-original-title="<%= @tm6count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm6count %></div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title"><%= @tm5.strftime("%a") %></div>
-                              <div class="value tooltips" data-original-title="<%= @tm5count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm5count %></div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title"><%= @tm4.strftime("%a") %></div>
-                              <div class="value tooltips" data-original-title="<%= @tm4count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm4count %></div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title"><%= @tm3.strftime("%a") %></div>
-                              <div class="value tooltips" data-original-title="<%= @tm3count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm3count %></div>
-                          </div>
-                          <div class="bar">
-                              <div class="title"><%= @tm2.strftime("%a") %></div>
-                              <div class="value tooltips" data-original-title="<%= @tm2count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm2count %></div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title"><%= @tm1.strftime("%a") %></div>
-                              <div class="value tooltips" data-original-title="<%= @tm1count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm1count %></div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">Today</div>
-                              <div class="value tooltips" data-original-title="<%= @todaycount %> visits" data-toggle="tooltip" data-placement="top"><%= @todaycount %></div>
-                          </div>
-                      </div>
-                  </div>
+      <div class="row">
+        <div class="col-lg-9 main-chart">
+
+          <!--CUSTOM CHART START -->
+          <div class="border-head">
+            <h3>CHECK-INS: LAST 7 DAYS</h3>
+          </div>
+          <div class="custom-bar-chart">
+            <ul class="y-axis">
+              <li><span class="tm6"></span></li>
+              <li><span class="tm5"></span></li>
+              <li><span class="tm4"></span></li>
+              <li><span class="tm3"></span></li>
+              <li><span class="tm2"></span></li>
+              <li><span class="tm1"></span></li>
+            </ul>
+            <div class="bar">
+              <div class="title"><%= @tm6.strftime("%a") %></div>
+              <div class="value tooltips" data-original-title="<%= @tm6count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm6count %></div>
+            </div>
+            <div class="bar ">
+              <div class="title"><%= @tm5.strftime("%a") %></div>
+              <div class="value tooltips" data-original-title="<%= @tm5count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm5count %></div>
+            </div>
+            <div class="bar ">
+              <div class="title"><%= @tm4.strftime("%a") %></div>
+              <div class="value tooltips" data-original-title="<%= @tm4count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm4count %></div>
+            </div>
+            <div class="bar ">
+              <div class="title"><%= @tm3.strftime("%a") %></div>
+              <div class="value tooltips" data-original-title="<%= @tm3count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm3count %></div>
+            </div>
+            <div class="bar">
+              <div class="title"><%= @tm2.strftime("%a") %></div>
+              <div class="value tooltips" data-original-title="<%= @tm2count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm2count %></div>
+            </div>
+            <div class="bar ">
+              <div class="title"><%= @tm1.strftime("%a") %></div>
+              <div class="value tooltips" data-original-title="<%= @tm1count %> visits" data-toggle="tooltip" data-placement="top"><%= @tm1count %></div>
+            </div>
+            <div class="bar">
+              <div class="title">Today</div>
+              <div class="value tooltips" data-original-title="<%= @todaycount %> visits" data-toggle="tooltip" data-placement="top"><%= @todaycount %></div>
+            </div>
+          </div>
+
+          <canvas id="myChart" style="width:100%" height="400"></canvas>
+
+        </div>
 </div>
 
+<script>  
 
-<script>   
+  topVal = nextL(<%= @l_value %>)
+  // marking our y axis...
+  $('span.tm6').html(noDecimals(topVal/5*5));
+  $('span.tm5').html(noDecimals(topVal/5*4));
+  $('span.tm4').html(noDecimals(topVal/5*3));
+  $('span.tm3').html(noDecimals(topVal/5*2));
+  $('span.tm2').html(noDecimals(topVal/5*1));
+  $('span.tm1').html(0);
+ 
   if ($(".custom-bar-chart")) {
     $(".bar").each(function () {
       var i = $(this).find(".value").html();
       $(this).find(".value").html("");
       $(this).find(".value").animate({
-        height: i*30
+        height: 289*i/topVal
       }, 2000)
 
     })
   }
-    //    tool tips
+  // tool tips
 
-    $('.tooltips').tooltip();
+  $('.tooltips').tooltip();
 
-//    popovers
+  // popovers
+  $('.popovers').popover();
 
-    $('.popovers').popover();
+  //Get the context of the canvas element we want to select
+var ctx = document.getElementById("myChart").getContext("2d");
+
+var data = {
+  labels : [
+    "<%= @tm6.strftime("%a") %>",
+    "<%= @tm5.strftime("%a") %>",
+    "<%= @tm4.strftime("%a") %>",
+    "<%= @tm3.strftime("%a") %>",
+    "<%= @tm2.strftime("%a") %>",
+    "<%= @tm1.strftime("%a") %>",
+    "Today"
+  ],
+  datasets : [
+    {
+      // fillColor : "rgba(220,220,220,0.5)",
+      fillColor : "#ed6639",
+      strokeColor : "rgba(220,220,220,1)",
+      data : [
+          <%= @tm6count %>,
+          <%= @tm5count %>,
+          <%= @tm4count %>,
+          <%= @tm3count %>,
+          <%= @tm2count %>,
+          <%= @tm1count %>,
+          <%= @todaycount %>,
+        ]
+    },
+    // {
+    //   fillColor : "rgba(151,187,205,0.5)",
+    //   strokeColor : "rgba(151,187,205,1)",
+    //   data : [28,48,40,19,96,27,100]
+    // }
+  ]
+}
+var options = {
+    //Boolean - Whether to animate the chart
+  animation : true,
+
+  //Number - Number of animation steps
+  animationSteps : 10,
+}
+
+var myNewChart = new Chart(ctx).Bar(data,options);
 
 
 </script>

@@ -72,8 +72,70 @@ $(document).ready(function(){
 //     }
 // });	
 
-
 })
 
+	// generating these kind of top limits...
+	// 10
+	// 100
+	// 1000
+	// 10000 ...
+
+	function nextK(l_value){
+		i = 1
+		top_limit = 1
+		for(j=1; j<15; j++){
+			i+="0" // adding zeros
+			k = parseInt(i)
+			if(l_value/k < 1 && top_limit==1){
+				// top_limit = Math.ceil(l_value/k)*k
+				top_limit = k
+			}
+		}
+		return top_limit
+	}
+
+	// generating these kind of top limits...
+	// 1-10
+	// 11-20
+	// 21-50
+	// 51-100
+	// 101-200
+	// 201-500
+	// 501-1000
+	// 1001-2000
+	// 2001-5000
+	// 5001-10000 ...
+
+	function nextL(l_value){
+		i = 1
+		top_limit = 1
+		for(j=1; j<15; j++){
+			i+="0" // adding zeros
+			k = parseInt(i)
+			l = k/5
+			if(l_value/l < 1 && top_limit==1){
+				top_limit = l
+			}
+			l = k/2
+			if(l_value/l < 1 && top_limit==1){
+				top_limit = l
+			}
+			l = k
+			if(l_value/l < 1 && top_limit==1){
+				top_limit = l
+			}
+		}
+		return top_limit
+	}
+
+	noDecimals = function(num){
+		if(num == Math.round(num)){
+		  return num
+		}
+		return ""
+	}
+	// noDecimals(num) 
+	// same as
+	// num = num == Math.round(num) ? num : ""
 
 
