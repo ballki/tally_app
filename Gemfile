@@ -7,6 +7,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'devise'
 gem 'role_model'
+gem "paperclip", "~> 4.1"
 
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'
